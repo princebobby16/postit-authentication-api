@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f29b6de9-e490-4bd5-b8f7-5affd15e1cd5" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="C:\Go" />
+  <component name="ProjectId" id="1jaKxPiHcjO9TK4bOKdc9iGqgf6" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="full.screen.before.presentation.mode" value="false" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="go" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Prince Bobby\go\src\postit-authentication-server\pkg\logs" />
+      <recent name="C:\Users\Prince Bobby\go\src\postit-authentication-server\app\middleware" />
+      <recent name="C:\Users\Prince Bobby\go\src\postit-authentication-server\app\router" />
+      <recent name="C:\Users\Prince Bobby\go\src\postit-authentication-server" />
+      <recent name="C:\Users\Prince Bobby\go\src\postit-authentication-server\db" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Prince Bobby\go\src\postit-authentication-server\db" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="postit-authentication-server" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="postit-authentication-server" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
+      </EXTENSION>
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$" />
+      <package value="postit-authentication-server" />
+      <directory value="$PROJECT_DIR$" />
+      <output_directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="137" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604044868674">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="137" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1604044868674" />
+    <state x="440" y="170" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604748759417">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="440" y="170" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.738@0.0.1366.738" timestamp="1604748759417" />
+    <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1604044861638">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1604044861638" />
+    <state width="1323" height="184" key="GridCell.Tab.0.bottom" timestamp="1606571221139">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="184" key="GridCell.Tab.0.bottom.inPresentationMode" timestamp="1606202716179">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="184" key="GridCell.Tab.0.bottom.inPresentationMode/0.0.1366.738@0.0.1366.738" timestamp="1606202716179" />
+    <state width="1323" height="184" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1606571221139" />
+    <state width="1323" height="184" key="GridCell.Tab.0.center" timestamp="1606571221138">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="184" key="GridCell.Tab.0.center.inPresentationMode" timestamp="1606202716178">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="184" key="GridCell.Tab.0.center.inPresentationMode/0.0.1366.738@0.0.1366.738" timestamp="1606202716178" />
+    <state width="1323" height="184" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1606571221138" />
+    <state width="1323" height="184" key="GridCell.Tab.0.left" timestamp="1606571221138">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="184" key="GridCell.Tab.0.left.inPresentationMode" timestamp="1606202716178">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="184" key="GridCell.Tab.0.left.inPresentationMode/0.0.1366.738@0.0.1366.738" timestamp="1606202716178" />
+    <state width="1323" height="184" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1606571221138" />
+    <state width="1323" height="184" key="GridCell.Tab.0.right" timestamp="1606571221139">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="184" key="GridCell.Tab.0.right.inPresentationMode" timestamp="1606202716178">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="184" key="GridCell.Tab.0.right.inPresentationMode/0.0.1366.738@0.0.1366.738" timestamp="1606202716178" />
+    <state width="1323" height="184" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1606571221139" />
+    <state x="462" y="231" key="com.goide.refactor.move.GoMoveDeclarationDialog" timestamp="1604743937693">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="462" y="231" key="com.goide.refactor.move.GoMoveDeclarationDialog/0.0.1366.738@0.0.1366.738" timestamp="1604743937693" />
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1606206250703">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1606206250703" />
+  </component>
+</project>
