@@ -77,49 +77,53 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="440" y="170" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.738@0.0.1366.738" timestamp="1604748759417" />
+    <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606971012936">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.738@0.0.1366.738" timestamp="1606971012936" />
     <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1604044861638">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1604044861638" />
-    <state width="1323" height="184" key="GridCell.Tab.0.bottom" timestamp="1606571221139">
+    <state width="1323" height="184" key="GridCell.Tab.0.bottom" timestamp="1606974567067">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1323" height="184" key="GridCell.Tab.0.bottom.inPresentationMode" timestamp="1606202716179">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1323" height="184" key="GridCell.Tab.0.bottom.inPresentationMode/0.0.1366.738@0.0.1366.738" timestamp="1606202716179" />
-    <state width="1323" height="184" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1606571221139" />
-    <state width="1323" height="184" key="GridCell.Tab.0.center" timestamp="1606571221138">
+    <state width="1323" height="184" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1606974567067" />
+    <state width="1323" height="184" key="GridCell.Tab.0.center" timestamp="1606974567066">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1323" height="184" key="GridCell.Tab.0.center.inPresentationMode" timestamp="1606202716178">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1323" height="184" key="GridCell.Tab.0.center.inPresentationMode/0.0.1366.738@0.0.1366.738" timestamp="1606202716178" />
-    <state width="1323" height="184" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1606571221138" />
-    <state width="1323" height="184" key="GridCell.Tab.0.left" timestamp="1606571221138">
+    <state width="1323" height="184" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1606974567066" />
+    <state width="1323" height="184" key="GridCell.Tab.0.left" timestamp="1606974567066">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1323" height="184" key="GridCell.Tab.0.left.inPresentationMode" timestamp="1606202716178">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1323" height="184" key="GridCell.Tab.0.left.inPresentationMode/0.0.1366.738@0.0.1366.738" timestamp="1606202716178" />
-    <state width="1323" height="184" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1606571221138" />
-    <state width="1323" height="184" key="GridCell.Tab.0.right" timestamp="1606571221139">
+    <state width="1323" height="184" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1606974567066" />
+    <state width="1323" height="184" key="GridCell.Tab.0.right" timestamp="1606974567067">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1323" height="184" key="GridCell.Tab.0.right.inPresentationMode" timestamp="1606202716178">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1323" height="184" key="GridCell.Tab.0.right.inPresentationMode/0.0.1366.738@0.0.1366.738" timestamp="1606202716178" />
-    <state width="1323" height="184" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1606571221139" />
+    <state width="1323" height="184" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1606974567067" />
     <state x="462" y="231" key="com.goide.refactor.move.GoMoveDeclarationDialog" timestamp="1604743937693">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="462" y="231" key="com.goide.refactor.move.GoMoveDeclarationDialog/0.0.1366.738@0.0.1366.738" timestamp="1604743937693" />
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1606206250703">
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1606888303567">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1606206250703" />
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1606888303567" />
   </component>
 </project>

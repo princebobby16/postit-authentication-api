@@ -35,10 +35,9 @@ func RefreshToken(w http.ResponseWriter, r *http.Request) {
 
 	//Get the relevant headers
 	traceId := headers["trace-id"]
-	tenantNamespace := headers["tenant-namespace"]
 
 	// Logging the headers
-	logs.Log("Headers => TraceId: %s, TenantNamespace: %s", traceId, tenantNamespace)
+	logs.Log("Headers => TraceId: %s", traceId)
 
 	body, err := ioutil.ReadAll(r.Body)
 	if err != nil {

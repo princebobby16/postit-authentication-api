@@ -4,8 +4,6 @@ import (
 	"crypto/rand"
 	"crypto/rsa"
 	"crypto/x509"
-	"encoding/asn1"
-	"encoding/gob"
 	"encoding/pem"
 	"flag"
 	"github.com/gorilla/handlers"
@@ -32,13 +30,13 @@ func init() {
 		return
 	}
 
-	publicKey := key.PublicKey
+	//publicKey := key.PublicKey
 
-	_ = saveGobKey("private.key", key)
+	//_ = saveGobKey("private.key", key)
 	_ = savePEMKey("private.pem", key)
 
-	_ = saveGobKey("public.key", publicKey)
-	_ = savePublicPEMKey("public.pem", publicKey)
+	//_ = saveGobKey("public.key", publicKey)
+	//_ = savePublicPEMKey("public.pem", publicKey)
 }
 
 func main() {
@@ -130,23 +128,28 @@ func main() {
 }
 
 
-func saveGobKey(fileName string, key interface{}) error {
-	outFile, err := os.Create(fileName)
-	if err != nil {
-		return err
-	}
-	defer outFile.Close()
-
-	encoder := gob.NewEncoder(outFile)
-	err = encoder.Encode(key)
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
+//func saveGobKey(fileName string, key interface{}) error {
+//	outFile, err := os.Create(fileName)
+//	if err != nil {
+//		return err
+//	}
+//	defer outFile.Close()
+//
+//	encoder := gob.NewEncoder(outFile)
+//	err = encoder.Encode(key)
+//	if err != nil {
+//		return err
+//	}
+//
+//	return nil
+//}
 
 func savePEMKey(fileName string, key *rsa.PrivateKey)  error {
+
+	if _, err := os.Stat(fileName); !os.IsNotExist(err) {
+		return nil
+	}
+
 	outFile, err := os.Create(fileName)
 	if err != nil {
 		return err
@@ -166,27 +169,27 @@ func savePEMKey(fileName string, key *rsa.PrivateKey)  error {
 	return nil
 }
 
-func savePublicPEMKey(fileName string, pubkey rsa.PublicKey) error {
-	asn1Bytes, err := asn1.Marshal(pubkey)
-	if err != nil {
-		return err
-	}
-
-	var pemkey = &pem.Block{
-		Type:  "PUBLIC KEY",
-		Bytes: asn1Bytes,
-	}
-
-	pemfile, err := os.Create(fileName)
-	if err != nil {
-		return err
-	}
-	defer pemfile.Close()
-
-	err = pem.Encode(pemfile, pemkey)
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
+//func savePublicPEMKey(fileName string, pubkey rsa.PublicKey) error {
+//	asn1Bytes, err := asn1.Marshal(pubkey)
+//	if err != nil {
+//		return err
+//	}
+//
+//	var pemkey = &pem.Block{
+//		Type:  "PUBLIC KEY",
+//		Bytes: asn1Bytes,
+//	}
+//
+//	pemfile, err := os.Create(fileName)
+//	if err != nil {
+//		return err
+//	}
+//	defer pemfile.Close()
+//
+//	err = pem.Encode(pemfile, pemkey)
+//	if err != nil {
+//		return err
+//	}
+//
+//	return nil
+//}

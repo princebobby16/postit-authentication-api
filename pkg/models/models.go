@@ -26,6 +26,12 @@ type (
 		CompanyContactNumber []string 	`json:"company_contact_number"`
 		CompanyEmail string 	`json:"company_email"`
 		GhanaPostAddress string `json:"ghana_post_address"`
+		CreatedAt time.Time		`json:"created_at"`
+		UpdatedAt time.Time		`json:"updated_at"`
+	}
+
+	MiddlewareErrorMessages struct {
+		Message string
 	}
 
 	LoginCredentials struct {
