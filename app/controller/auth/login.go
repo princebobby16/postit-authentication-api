@@ -3,6 +3,7 @@ package auth
 import (
 	"encoding/json"
 	"github.com/cristalhq/jwt"
+	"github.com/lib/pq"
 	"github.com/twinj/uuid"
 	"golang.org/x/crypto/bcrypt"
 	"io/ioutil"
@@ -87,15 +88,28 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	companyName := ""
-	query = `SELECT company_name FROM postit_auth.company WHERE company_id = $1`
-	err = db.Connection.QueryRow(query, companyId).Scan(&companyName)
+	var companyDetails models.SignUpRequest
+	query = `SELECT * FROM postit_auth.company WHERE company_id = $1`
+	err = db.Connection.QueryRow(query, companyId).Scan(
+		&companyDetails.CompanyId,
+		&companyDetails.CompanyName,
+		&companyDetails.CompanyEmail,
+		pq.Array(&companyDetails.CompanyContactNumber),
+		&companyDetails.GhanaPostAddress,
+		&companyDetails.CompanyAddress,
+		&companyDetails.CompanyWebsite,
+		&companyDetails.AdminFirstName,
+		&companyDetails.AdminLastName,
+		&companyDetails.CreatedAt,
+		&companyDetails.UpdatedAt,
+	)
 	if err != nil {
 		utils.SendErrorMessage(w, r, err, "Something went wrong. Contact Admin", transactionId, http.StatusInternalServerError)
 		return
 	}
+	logs.Log("Company Details: ", companyDetails)
 
-	tenantNamespace, err := utils.GenerateSchemaName(companyName)
+	tenantNamespace, err := utils.GenerateSchemaName(companyDetails.CompanyName)
 	if err != nil {
 		utils.SendErrorMessage(w, r, err, "Something went wrong. Contact Admin", transactionId, http.StatusInternalServerError)
 		return
@@ -137,8 +151,8 @@ func Login(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Add("token", token.String())
 	w.Header().Add("tenant-namespace", tenantNamespace)
-	err = json.NewEncoder(w).Encode(&models.LoginTokenResponse{
-		Message: "Logged in successfully",
+	err = json.NewEncoder(w).Encode(&models.LoginResponseData{
+		CompanyData: companyDetails,
 		Meta: models.MetaData{
 			TraceId:       headers["trace-id"],
 			TransactionId: transactionId.String(),

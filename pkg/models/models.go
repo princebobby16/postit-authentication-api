@@ -17,6 +17,7 @@ type (
 	}
 
 	SignUpRequest struct {
+		CompanyId string 		`json:"company_id"`
 		AdminFirstName string	`json:"admin_first_name"`
 		AdminLastName string 	`json:"admin_last_name"`
 		Username string 		`json:"username"`
@@ -40,9 +41,9 @@ type (
 		Password string 		`json:"password"`
 	}
 
-	LoginTokenResponse struct {
-		Message string 			`json:"message"`
-		Meta MetaData			`json:"meta"`
+	LoginResponseData struct {
+		CompanyData SignUpRequest 	`json:"company_data"`
+		Meta MetaData				`json:"meta"`
 	}
 	
 	StandardErrorResponse struct {

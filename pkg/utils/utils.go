@@ -151,6 +151,8 @@ func ProvisionSchema(request models.SignUpRequest, passwordHash []byte) (string,
 		}
 		return "", errors.New("Company email already exists")
 	}
+	request.CompanyId = companyId.String()
+	request.Password = ""
 
 	logs.Log(query)
 	query = `INSERT INTO postit_auth.login(login_id, username, password) VALUES($1,$2,$3)`
