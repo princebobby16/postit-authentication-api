@@ -16,12 +16,7 @@ CREATE TABLE IF NOT EXISTS postit_auth.company
     created_at timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (company_id)
-) WITH (
-    OIDS = FALSE
 );
-
-ALTER TABLE postit_auth.company
-OWNER to postgres;
 
 CREATE TABLE IF NOT EXISTS postit_auth.login
 (
@@ -31,11 +26,8 @@ CREATE TABLE IF NOT EXISTS postit_auth.login
     created_at timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (login_id)
-) WITH (
-    OIDS = FALSE
 );
-ALTER TABLE postit_auth.login
-OWNER to postgres;
+
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 -- +goose StatementBegin
 DO $$
