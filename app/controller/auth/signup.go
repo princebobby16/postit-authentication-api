@@ -2,7 +2,7 @@ package auth
 
 import (
 	"encoding/json"
-	"github.com/dgrijalva/jwt-go"
+	"github.com/cristalhq/jwt"
 	"github.com/twinj/uuid"
 	"golang.org/x/crypto/bcrypt"
 	"io/ioutil"
@@ -50,7 +50,7 @@ func SignUp(w http.ResponseWriter, r *http.Request) {
 	// Hash the password
 	passwordHash, err := bcrypt.GenerateFromPassword([]byte(req.Password), cost)
 	if err != nil {
-		utils.SendErrorMessage(w, r, err, "Something went wrong. Contact Admin", transactionId, http.StatusInternalServerError)
+		utils.SendErrorMessage(w, r, err, "Invalid Password!", transactionId, http.StatusInternalServerError)
 		return
 	}
 	logs.Log("Hashed Password: ", passwordHash)
@@ -61,42 +61,43 @@ func SignUp(w http.ResponseWriter, r *http.Request) {
 		utils.SendErrorSchemaMessage(w, r, err, transactionId, http.StatusBadRequest)
 		return
 	}
+	logs.Log("Tenant Namespace: ", tenantNamespace)
 
-	claims := jwt.StandardClaims{
-		Audience:  "PostIt",
-		ExpiresAt: time.Now().Add(10 * time.Minute).Unix(),
-		Id:        uuid.NewV4().String(),
-		IssuedAt:  time.Now().Unix(),
-		Issuer:    "PostIt Auth",
-		Subject:   "User Login Authentication",
-	}
-	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
-
-	logs.Log("Token signature: ", token.Signature)
-	logs.Log(string(PrivateKey))
-
-	tokenString, err := token.SignedString(PrivateKey)
+	signer, err := jwt.NewSignerHS(jwt.HS512, PrivateKey)
 	if err != nil {
-		utils.SendErrorMessage(w, r, err, "Something went wrong. Contact Admin", transactionId, http.StatusInternalServerError)
+		logs.Log(err)
+		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
 
-	logs.Log("Token signature: ", token.Signature)
-	logs.Log(token.Valid)
-
-	// set the cookie
-	cookie := &http.Cookie{
-		Name:       "token",
-		Value:      tokenString,
-		Domain:     "",
-		Expires:    time.Now().Add(10 * time.Minute),
-		MaxAge:     time.Now().Add(11 * time.Minute).Minute(),
-		Secure:     true,
-		HttpOnly:   true,
+	claims := &jwt.RegisteredClaims{
+		ID:        uuid.NewV4().String(),
+		Audience:  []string{tenantNamespace},
+		Issuer:    "POSTIT",
+		Subject:   "User Login Authentication",
+		ExpiresAt: jwt.NewNumericDate(time.Now().Add(10 * time.Minute)),
+		IssuedAt:  jwt.NewNumericDate(time.Now()),
 	}
-	http.SetCookie(w, cookie)
 
-	w.Header().Add("tenant-namespace", tenantNamespace)
+	b, err := signer.Sign(PrivateKey)
+	if err != nil {
+		log.Println(err)
+		w.WriteHeader(http.StatusUnauthorized)
+		return
+	}
+	logs.Log(string(b))
+
+	builder := jwt.NewBuilder(signer)
+	token, err := builder.Build(claims)
+	if err != nil {
+		log.Println(err)
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+	log.Println(token.SecureString())
+
+	w.Header().Add("Token", token.String())
+	w.Header().Add("Tenant-Namespace", tenantNamespace)
 	err = json.NewEncoder(w).Encode(&models.LoginTokenResponse{
 		Message: "Successfully signed up",
 		Meta: models.MetaData{

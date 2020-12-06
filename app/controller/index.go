@@ -9,6 +9,7 @@ import (
 func HealthCheckHandler(w http.ResponseWriter, r *http.Request) {
 	resp := &models.HealthCheck{
 		Status:  "Alive",
+		ApplicationName: "PostIt Authentication",
 		Version: 0.1,
 		Author:  "Prince Bobby",
 		Email:   "princebobby506@gmail.com",

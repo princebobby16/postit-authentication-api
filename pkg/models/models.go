@@ -8,6 +8,7 @@ type (
 
 	HealthCheck struct {
 		Status string 			`json:"status"`
+		ApplicationName string 	`json:"application_name"`
 		Version float64 		`json:"version"`
 		Author string 			`json:"author"`
 		Email string 			`json:"email"`
