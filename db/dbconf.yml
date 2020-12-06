@@ -1,7 +1,11 @@
-development:
-  driver: postgres
-  open: user=postgres password=postgres dbname=postit-auth sslmode=disable
+#development:
+#  driver: postgres
+#  open: user=postgres password=postgres dbname=postit-auth sslmode=disable
 
-production:
+#development:
+#  driver: postgres
+#  open: user=postgres password=postgres dbname=postit-auth sslmode=disable
+
+development:
   driver: postgres
   open: $DATABASE_URL

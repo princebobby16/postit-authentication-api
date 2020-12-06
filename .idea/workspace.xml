@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f29b6de9-e490-4bd5-b8f7-5affd15e1cd5" name="Default Changelist" comment="" />
+    <list default="true" id="f29b6de9-e490-4bd5-b8f7-5affd15e1cd5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/db/migrations/20201203062630_dbstruct.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/dbconf.yml" beforeDir="false" afterPath="$PROJECT_DIR$/db/dbconf.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrations/20201030114212_database_struct.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/20201030114212_database_struct.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,18 +34,20 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="go.import.settings.migrated" value="true" />
+    <property name="go.vendoring.notification.had.been.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="go" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Prince Bobby\go\src\postit-authentication-server" />
       <recent name="C:\Users\Prince Bobby\go\src\postit-authentication-server\pkg\logs" />
       <recent name="C:\Users\Prince Bobby\go\src\postit-authentication-server\app\middleware" />
       <recent name="C:\Users\Prince Bobby\go\src\postit-authentication-server\app\router" />
-      <recent name="C:\Users\Prince Bobby\go\src\postit-authentication-server" />
       <recent name="C:\Users\Prince Bobby\go\src\postit-authentication-server\db" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Prince Bobby\go\src\postit-authentication-server\app" />
       <recent name="C:\Users\Prince Bobby\go\src\postit-authentication-server\db" />
     </key>
   </component>
