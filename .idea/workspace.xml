@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f29b6de9-e490-4bd5-b8f7-5affd15e1cd5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/db/migrations/20201203062630_dbstruct.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/dbconf.yml" beforeDir="false" afterPath="$PROJECT_DIR$/db/dbconf.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrations/20201030114212_database_struct.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/20201030114212_database_struct.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrations/20201203062630_dbstruct.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrations/20201203062630_dbstruct.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

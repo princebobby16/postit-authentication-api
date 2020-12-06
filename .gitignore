@@ -1,9 +1,9 @@
 private.key
-private.pem
+#private.pem
 app.yaml
 log.txt
 public.key
-public.pem
+#public.pem
 .env
 postit_authentication_server.exe
 .idea
