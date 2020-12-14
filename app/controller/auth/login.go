@@ -20,7 +20,6 @@ var (
 	PrivateKey []byte
 )
 
-
 func init() {
 	data, err := ioutil.ReadFile("private.pem")
 	if err != nil {
@@ -78,13 +77,13 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	query := `SELECT login_id, password FROM postit_auth.login WHERE username = $1`
 	err = db.Connection.QueryRow(query, loginRequest.Username).Scan(&companyId, &storedPasswordHash)
 	if err != nil {
-		utils.SendErrorMessage(w, r, err, "Something went wrong. Contact Admin", transactionId, http.StatusInternalServerError)
+		utils.SendErrorMessage(w, r, err, "Invalid username", transactionId, http.StatusInternalServerError)
 		return
 	}
 
 	err = bcrypt.CompareHashAndPassword(storedPasswordHash, []byte(loginRequest.Password))
 	if err != nil {
-		utils.SendErrorMessage(w, r, err, "Something went wrong. Contact Admin", transactionId, http.StatusInternalServerError)
+		utils.SendErrorMessage(w, r, err, "Invalid password", transactionId, http.StatusInternalServerError)
 		return
 	}
 
@@ -128,7 +127,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		Audience:  []string{tenantNamespace},
 		Issuer:    "POSTIT",
 		Subject:   "User Login Authentication",
-		ExpiresAt: jwt.NewNumericDate(time.Now().Add(10 * time.Minute)),
+		ExpiresAt: jwt.NewNumericDate(time.Now().Add(20 * time.Minute)),
 		IssuedAt:  jwt.NewNumericDate(time.Now()),
 	}
 
