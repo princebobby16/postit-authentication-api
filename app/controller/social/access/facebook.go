@@ -6,8 +6,8 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
-	"postit-api/cmd/postit/db"
-	"postit-api/cmd/postit/pkg"
+	"postit-authentication-server/db"
+	"postit-backend-api/cmd/postit/pkg"
 	"time"
 )
 
@@ -16,17 +16,8 @@ func HandleGetFacebookAccessToken(w http.ResponseWriter, r *http.Request) {
 	transactionId := uuid.NewV4()
 	log.Println("Transaction Id: ", transactionId)
 
-	// Validate the headers
-	var headers, err = pkg.ValidateHeaders(r)
-	if err != nil {
-		log.Println(err)
-		return
-	}
-
-	traceId := headers["trace-id"]
-	log.Println("Trace Id: ", traceId)
-	tenantNamespace := headers["tenant-namespace"]
-	log.Println("Tenant Namespace: ", tenantNamespace)
+	tenantNamespace := r.Header.Get("tenant-namespace")
+	traceId := r.Header.Get("trace-id")
 
 	body, err := ioutil.ReadAll(r.Body)
 	if err != nil {
