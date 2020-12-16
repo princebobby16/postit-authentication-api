@@ -59,6 +59,12 @@ func InitRoutes() *mux.Router {
 			Method: http.MethodPost,
 			Handler: auth.SignUp,
 		},
+		Route{
+			Name: "ValidateToken",
+			Path: "/validate",
+			Method: http.MethodPost,
+			Handler: auth.ValidateToken,
+		},
 	}
 
 	for _, route := range routes {

@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS postit_auth.company
     company_website character varying (200),
     admin_first_name character varying (200) NOT NULL,
     admin_last_name character varying (200) NOT NULL,
+    namespace character varying (100) NOT NULL,
     created_at timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (company_id)
