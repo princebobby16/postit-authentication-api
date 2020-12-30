@@ -99,6 +99,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		&companyDetails.CompanyWebsite,
 		&companyDetails.AdminFirstName,
 		&companyDetails.AdminLastName,
+		&companyDetails.Namespace,
 		&companyDetails.CreatedAt,
 		&companyDetails.UpdatedAt,
 	)

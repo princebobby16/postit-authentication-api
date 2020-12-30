@@ -2,132 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f29b6de9-e490-4bd5-b8f7-5affd15e1cd5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/controller/auth/validate.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Godeps/Godeps.json" beforeDir="false" afterPath="$PROJECT_DIR$/Godeps/Godeps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/router/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/router/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controller/auth/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller/auth/login.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/migrations/20201203062630_dbstruct.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrations/20201203062630_dbstruct.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/cristalhq/jwt/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/cristalhq/jwt/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/cristalhq/jwt/algo.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/cristalhq/jwt/algo_eddsa.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/cristalhq/jwt/algo_es.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/cristalhq/jwt/algo_hs.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/cristalhq/jwt/algo_ps.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/cristalhq/jwt/algo_rs.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/cristalhq/jwt/audience.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/cristalhq/jwt/build.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/cristalhq/jwt/claims.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/cristalhq/jwt/errors.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/cristalhq/jwt/fuzz.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/cristalhq/jwt/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/cristalhq/jwt/jwt.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/cristalhq/jwt/numeric_date.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/cristalhq/jwt/parse.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/dgrijalva/jwt-go/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/dgrijalva/jwt-go/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/dgrijalva/jwt-go/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/dgrijalva/jwt-go/MIGRATION_GUIDE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/dgrijalva/jwt-go/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/dgrijalva/jwt-go/VERSION_HISTORY.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/dgrijalva/jwt-go/claims.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/dgrijalva/jwt-go/doc.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/dgrijalva/jwt-go/ecdsa.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/dgrijalva/jwt-go/ecdsa_utils.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/dgrijalva/jwt-go/errors.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/dgrijalva/jwt-go/hmac.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/dgrijalva/jwt-go/map_claims.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/dgrijalva/jwt-go/none.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/dgrijalva/jwt-go/parser.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/dgrijalva/jwt-go/rsa.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/dgrijalva/jwt-go/rsa_pss.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/dgrijalva/jwt-go/rsa_utils.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/dgrijalva/jwt-go/signing_method.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/dgrijalva/jwt-go/token.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/gorilla/handlers/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/gorilla/handlers/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/gorilla/handlers/canonical.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/gorilla/handlers/compress.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/gorilla/handlers/cors.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/gorilla/handlers/doc.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/gorilla/handlers/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/gorilla/handlers/handlers.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/gorilla/handlers/handlers_go18.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/gorilla/handlers/handlers_pre18.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/gorilla/handlers/logging.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/gorilla/handlers/proxy_headers.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/gorilla/handlers/recovery.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/gorilla/mux/AUTHORS" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/gorilla/mux/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/gorilla/mux/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/gorilla/mux/doc.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/gorilla/mux/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/gorilla/mux/middleware.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/gorilla/mux/mux.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/gorilla/mux/regexp.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/gorilla/mux/route.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/gorilla/mux/test_helpers.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/joho/godotenv/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/joho/godotenv/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/joho/godotenv/LICENCE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/joho/godotenv/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/joho/godotenv/autoload/autoload.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/joho/godotenv/godotenv.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/lib/pq/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/lib/pq/.travis.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/lib/pq/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/lib/pq/CONTRIBUTING.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/lib/pq/LICENSE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/lib/pq/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/lib/pq/TESTS.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/lib/pq/array.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/lib/pq/buf.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/lib/pq/conn.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/lib/pq/conn_go18.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/lib/pq/connector.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/lib/pq/copy.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/lib/pq/doc.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/lib/pq/encode.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/lib/pq/error.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/lib/pq/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/lib/pq/notice.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/lib/pq/notify.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/lib/pq/oid/doc.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/lib/pq/oid/gen.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/lib/pq/oid/types.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/lib/pq/rows.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/lib/pq/scram/scram.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/lib/pq/ssl.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/lib/pq/ssl_permissions.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/lib/pq/ssl_windows.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/lib/pq/url.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/lib/pq/user_posix.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/lib/pq/user_windows.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/lib/pq/uuid.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/twinj/uuid/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/twinj/uuid/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/twinj/uuid/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/twinj/uuid/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/twinj/uuid/appveyor.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/twinj/uuid/format.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/twinj/uuid/generator.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/twinj/uuid/glide.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/twinj/uuid/glide.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/twinj/uuid/saver.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/twinj/uuid/timestamp.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/twinj/uuid/types.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/twinj/uuid/uuid.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/github.com/twinj/uuid/version.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/crypto/bcrypt/base64.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/crypto/bcrypt/bcrypt.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/crypto/blowfish/block.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/crypto/blowfish/cipher.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/crypto/blowfish/const.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/net/context/context.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/net/context/go17.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/net/context/go19.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/net/context/pre_go17.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/net/context/pre_go19.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/models/models.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/models/models.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/utils/utils.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/utils/utils.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/postit_authentication_server.go" beforeDir="false" afterPath="$PROJECT_DIR$/postit_authentication_server.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,6 +32,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -174,7 +56,7 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="postit-authentication-server" type="GoApplicationRunConfiguration" factoryName="Go Application">
+    <configuration name="postit-auth-server" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="postit-authentication-server" />
       <working_directory value="$PROJECT_DIR$" />
       <go_parameters value="-i" />
@@ -205,18 +87,18 @@
     <option name="LAST_COMMIT_MESSAGE" value="Sent proper login error message and created refresh token endpoint" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="137" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604044868674">
+    <state x="137" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1609201311601">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="137" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1604044868674" />
+    <state x="137" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1609201311601" />
     <state x="440" y="170" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1607954357143">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="440" y="170" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.738@0.0.1366.738" timestamp="1607954357143" />
-    <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607325486268">
+    <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1609201547391">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.738@0.0.1366.738" timestamp="1607325486268" />
+    <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.738@0.0.1366.738" timestamp="1609201547391" />
     <state x="303" y="0" key="CommitChangelistDialog2" timestamp="1607957628140">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -225,38 +107,42 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1604044861638" />
-    <state width="1323" height="169" key="GridCell.Tab.0.bottom" timestamp="1607956246169">
+    <state width="1323" height="236" key="GridCell.Tab.0.bottom" timestamp="1609201918724">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="184" key="GridCell.Tab.0.bottom.inPresentationMode" timestamp="1606202716179">
+    <state width="1367" height="236" key="GridCell.Tab.0.bottom.inPresentationMode" timestamp="1608310240065">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="184" key="GridCell.Tab.0.bottom.inPresentationMode/0.0.1366.738@0.0.1366.738" timestamp="1606202716179" />
-    <state width="1323" height="169" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1607956246169" />
-    <state width="1323" height="169" key="GridCell.Tab.0.center" timestamp="1607956246168">
+    <state width="1367" height="236" key="GridCell.Tab.0.bottom.inPresentationMode/0.0.1366.738@0.0.1366.738" timestamp="1608310240065" />
+    <state width="1323" height="236" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1609201918724" />
+    <state width="1323" height="236" key="GridCell.Tab.0.center" timestamp="1609201918724">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="184" key="GridCell.Tab.0.center.inPresentationMode" timestamp="1606202716178">
+    <state width="1367" height="236" key="GridCell.Tab.0.center.inPresentationMode" timestamp="1608310240064">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="184" key="GridCell.Tab.0.center.inPresentationMode/0.0.1366.738@0.0.1366.738" timestamp="1606202716178" />
-    <state width="1323" height="169" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1607956246168" />
-    <state width="1323" height="169" key="GridCell.Tab.0.left" timestamp="1607956246167">
+    <state width="1367" height="236" key="GridCell.Tab.0.center.inPresentationMode/0.0.1366.738@0.0.1366.738" timestamp="1608310240064" />
+    <state width="1323" height="236" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1609201918724" />
+    <state width="1323" height="236" key="GridCell.Tab.0.left" timestamp="1609201918724">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="184" key="GridCell.Tab.0.left.inPresentationMode" timestamp="1606202716178">
+    <state width="1367" height="236" key="GridCell.Tab.0.left.inPresentationMode" timestamp="1608310240064">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="184" key="GridCell.Tab.0.left.inPresentationMode/0.0.1366.738@0.0.1366.738" timestamp="1606202716178" />
-    <state width="1323" height="169" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1607956246167" />
-    <state width="1323" height="169" key="GridCell.Tab.0.right" timestamp="1607956246169">
+    <state width="1367" height="236" key="GridCell.Tab.0.left.inPresentationMode/0.0.1366.738@0.0.1366.738" timestamp="1608310240064" />
+    <state width="1323" height="236" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1609201918724" />
+    <state width="1323" height="236" key="GridCell.Tab.0.right" timestamp="1609201918724">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="184" key="GridCell.Tab.0.right.inPresentationMode" timestamp="1606202716178">
+    <state width="1367" height="236" key="GridCell.Tab.0.right.inPresentationMode" timestamp="1608310240064">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="184" key="GridCell.Tab.0.right.inPresentationMode/0.0.1366.738@0.0.1366.738" timestamp="1606202716178" />
-    <state width="1323" height="169" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1607956246169" />
+    <state width="1367" height="236" key="GridCell.Tab.0.right.inPresentationMode/0.0.1366.738@0.0.1366.738" timestamp="1608310240064" />
+    <state width="1323" height="236" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1609201918724" />
+    <state width="210" height="457" key="HiddenNamespacesPopup" timestamp="1609201054218">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="210" height="457" key="HiddenNamespacesPopup/0.0.1366.738@0.0.1366.738" timestamp="1609201054218" />
     <state x="462" y="231" key="com.goide.refactor.move.GoMoveDeclarationDialog" timestamp="1604743937693">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

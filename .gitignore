@@ -2,4 +2,4 @@ app.yaml
 log.txt
 .env
 .idea
-postit_authentication_server.exe
+postit_auth_server.exe

@@ -47,7 +47,8 @@ BEGIN
         company_address,
         company_website,
         admin_first_name,
-        admin_last_name
+        admin_last_name,
+        namespace
     ) VALUES
     (
         companyId,
@@ -58,7 +59,8 @@ BEGIN
         'Accra, Ghana',
         'shiftr.herokuapp.com',
         'Prince',
-        'Bobby'
+        'Bobby',
+        'postit'
     );
 
     INSERT INTO postit_auth.login(login_id, username, password) VALUES(companyId, 'admin', password);

@@ -130,7 +130,7 @@ func ProvisionSchema(request models.SignUpRequest, passwordHash []byte) (string,
 	logs.Log(query)
 
 	companyId := uuid.NewV4()
-	query = `INSERT INTO postit_auth.company (company_id,admin_first_name,admin_last_name,company_name,company_email,company_phone_numbers,company_address,company_website,company_ghana_post_address) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)`
+	query = `INSERT INTO postit_auth.company (company_id,admin_first_name,admin_last_name,company_name,company_email,company_phone_numbers,company_address,company_website,company_ghana_post_address,namespace) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)`
 	_, err = db.Connection.Exec(query,
 		&companyId,
 		&request.AdminFirstName,
@@ -141,15 +141,16 @@ func ProvisionSchema(request models.SignUpRequest, passwordHash []byte) (string,
 		&request.CompanyAddress,
 		&request.CompanyWebsite,
 		&request.GhanaPostAddress,
+		&tenantNamespace,
 	)
 	if err != nil {
 		query := fmt.Sprintf("DROP SCHEMA %s CASCADE;", tenantNamespace)
-		_, err = connection.Exec(query)
-		if err != nil {
+		_, newErr := connection.Exec(query)
+		if newErr != nil {
 			logs.Log(err)
 			return "", errors.New("Something went wrong! contact admin!")
 		}
-		return "", errors.New("Company email already exists")
+		return "", err
 	}
 	request.CompanyId = companyId.String()
 	request.Password = ""
