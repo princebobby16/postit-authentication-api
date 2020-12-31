@@ -150,7 +150,7 @@ func ProvisionSchema(request models.SignUpRequest, passwordHash []byte) (string,
 			logs.Log(err)
 			return "", errors.New("Something went wrong! contact admin!")
 		}
-		return "", err
+		return "", errors.New("company already exists")
 	}
 	request.CompanyId = companyId.String()
 	request.Password = ""
