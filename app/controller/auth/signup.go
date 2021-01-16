@@ -98,9 +98,9 @@ func SignUp(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Add("Token", token.String())
 	w.Header().Add("Tenant-Namespace", tenantNamespace)
-	err = json.NewEncoder(w).Encode(&models.LoginResponseData{
+	err = json.NewEncoder(w).Encode(&models.LoginResponseData {
 		CompanyData: req,
-		Meta: models.MetaData{
+		Meta: models.MetaData {
 			TraceId:       headers["trace-id"],
 			TransactionId: transactionId.String(),
 			TimeStamp:     time.Now(),

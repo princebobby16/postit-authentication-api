@@ -26,12 +26,6 @@ func init() {
 		logs.Log(err)
 	}
 	PrivateKey = data
-	//pData, err := ioutil.ReadFile("public.pem")
-	//if err != nil {
-	//	logs.Log(err)
-	//	return
-	//}
-	//PublicKey = pData
 }
 
 func Login(w http.ResponseWriter, r *http.Request) {
