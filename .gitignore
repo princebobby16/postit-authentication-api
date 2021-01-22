@@ -3,3 +3,4 @@ log.txt
 .env
 .idea
 postit_auth_server.exe
+/pkg/logs/*.log
