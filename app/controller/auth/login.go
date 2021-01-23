@@ -23,7 +23,7 @@ var (
 func init() {
 	data, err := ioutil.ReadFile("private.pem")
 	if err != nil {
-		logs.Log(err)
+		logs.Logger.Error(err)
 	}
 	PrivateKey = data
 }
@@ -32,7 +32,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 
 	// Transaction Id
 	transactionId := uuid.NewV4()
-	logs.Log("TransactionId: ", transactionId)
+	logs.Logger.Info("TransactionId: ", transactionId)
 
 	headers, err := utils.ValidateHeaders(r)
 	if err != nil {
@@ -52,7 +52,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	}
 	defer r.Body.Close()
 
-	logs.Log("Request Object: ", string(body))
+	logs.Logger.Info("Request Object: ", string(body))
 
 	var loginRequest models.LoginCredentials
 
@@ -62,7 +62,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	logs.Log("Decoded Request Object: ", loginRequest)
+	logs.Logger.Info("Decoded Request Object: ", loginRequest)
 
 	var storedPasswordHash []byte
 
@@ -101,18 +101,18 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		utils.SendErrorMessage(w, r, err, "Something went wrong. Contact Admin", transactionId, http.StatusInternalServerError)
 		return
 	}
-	logs.Log("Company Details: ", companyDetails)
+	logs.Logger.Info("Company Details: ", companyDetails)
 
 	tenantNamespace, err := utils.GenerateSchemaName(companyDetails.CompanyName)
 	if err != nil {
 		utils.SendErrorMessage(w, r, err, "Something went wrong. Contact Admin", transactionId, http.StatusInternalServerError)
 		return
 	}
-	logs.Log("Tenant Namespace: ", tenantNamespace)
+	logs.Logger.Info("Tenant Namespace: ", tenantNamespace)
 
 	signer, err := jwt.NewSignerHS(jwt.HS512, PrivateKey)
 	if err != nil {
-		logs.Log(err)
+		logs.Logger.Error(err)
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
@@ -128,20 +128,20 @@ func Login(w http.ResponseWriter, r *http.Request) {
 
 	b, err := signer.Sign(PrivateKey)
 	if err != nil {
-		log.Println(err)
+		logs.Logger.Error(err)
 		w.WriteHeader(http.StatusUnauthorized)
 		return
 	}
-	logs.Log(string(b))
+	logs.Logger.Error(string(b))
 
 	builder := jwt.NewBuilder(signer)
 	token, err := builder.Build(claims)
 	if err != nil {
-		log.Println(err)
+		logs.Logger.Error(err)
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
-	log.Println(token.SecureString())
+	logs.Logger.Info(token.SecureString())
 
 	w.Header().Add("token", token.String())
 	w.Header().Add("tenant-namespace", tenantNamespace)

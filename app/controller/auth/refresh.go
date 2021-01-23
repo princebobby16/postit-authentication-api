@@ -15,11 +15,11 @@ func RefreshToken(w http.ResponseWriter, r *http.Request) {
 
 	// Transaction Id
 	transactionId := uuid.NewV4()
-	logs.Log("TransactionId: ", transactionId)
+	logs.Logger.Info("TransactionId: ", transactionId)
 
 	// Get the token from the header
 	token := r.Header.Get("token")
-	logs.Log("Token:", token)
+	logs.Logger.Info("Token:", token)
 
 	verifier, err := jwt.NewVerifierHS(jwt.HS512, PrivateKey)
 	if err != nil {
@@ -48,11 +48,11 @@ func RefreshToken(w http.ResponseWriter, r *http.Request) {
 		IssuedAt:  jwt.NewNumericDate(time.Now()),
 	}
 
-	logs.Log("old audience:", claims.Audience)
-	logs.Log("new audience: ", newClaims.Audience)
+	logs.Logger.Info("old audience:", claims.Audience)
+	logs.Logger.Info("new audience: ", newClaims.Audience)
 	signer, err := jwt.NewSignerHS(jwt.HS512, PrivateKey)
 	if err != nil {
-		logs.Log(err)
+		logs.Logger.Error(err)
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
@@ -63,7 +63,7 @@ func RefreshToken(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusUnauthorized)
 		return
 	}
-	logs.Log(string(b))
+	logs.Logger.Info(string(b))
 
 	builder := jwt.NewBuilder(signer)
 	newToken, err := builder.Build(newClaims)

@@ -15,23 +15,23 @@ func Test(w http.ResponseWriter, r *http.Request) {
 	
 	body, err := ioutil.ReadAll(r.Body)
 	if err != nil {
-		logs.Log(err)
+		logs.Logger.Info(err)
 		return
 	}
 	
 	err = json.Unmarshal(body, &password)
 	if err != nil {
-		logs.Log(err)
+		logs.Logger.Info(err)
 		return
 	}
 
 	hash, err := bcrypt.GenerateFromPassword([]byte(password.Password), 10)
 	if err != nil {
-		logs.Log(err)
+		logs.Logger.Info(err)
 		return
 	}
 	
-	logs.Log(string(hash))
+	logs.Logger.Info(string(hash))
 
 	_, _ = w.Write(hash)
 }

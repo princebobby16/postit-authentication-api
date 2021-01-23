@@ -1,76 +1,123 @@
 package logs
 
 import (
-	"fmt"
+	see "github.com/cihub/seelog"
 	"log"
-	"net/http"
 	"os"
-	"time"
 )
 
-func HandlerLog(inner http.Handler, name string) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		start := time.Now()
-		inner.ServeHTTP(w, r)
+var Logger see.LoggerInterface
 
-		elapsedTime := time.Since(start)
+func init() {
 
-		message := fmt.Sprintf(
-			"%s ==> Log Message: %s\t%s\t%s\t%s\t%s\t%s",
-			time.Now(),
-			r.Method,
-			r.RequestURI,
-			name,
-			elapsedTime,
-			r.Header.Get("Content-Type"),
-			r.RemoteAddr,
-		)
-		Log(message)
-	})
-}
-
-func logToFile(message, filename string) error {
-	message += "\n"
-	if _, err := os.Stat(filename); !os.IsNotExist(err) {
-		file, err := os.OpenFile(filename, os.O_WRONLY|os.O_APPEND, 666)
-		if err != nil {
-			return err
-		}
-		defer file.Close()
-
-		_, err = file.WriteString(message)
-		if err != nil {
-			return err
-		}
-
-		return nil
+	common := "pkg/logs/common.log"
+	critical := "pkg/logs/critical.log"
+	errorLog := "pkg/logs/error.log"
+	if _, err := os.Stat(common); !os.IsNotExist(err) {
+		// Do nothing
 	}
 
-	file, err := os.Create(filename)
+	file, err := os.Create(common)
 	if err != nil {
-		return err
+		log.Println(err)
+		return
 	}
 	defer file.Close()
 
-	_, err = file.WriteString(message)
-	if err != nil {
-		return err
+	if _, err := os.Stat(critical); !os.IsNotExist(err) {
+		// Do nothing
 	}
 
-	return nil
+	file, err = os.Create(critical)
+	if err != nil {
+		log.Println(err)
+		return
+	}
+	defer file.Close()
+
+	if _, err := os.Stat(errorLog); !os.IsNotExist(err) {
+		// Do nothing
+	}
+
+	file, err = os.Create(errorLog)
+	if err != nil {
+		log.Println(err)
+		return
+	}
+	defer file.Close()
+	
+	Logger = see.Disabled
+	loadAppConfig()
 }
 
-func Log(messages ...interface{}) {
+func loadAppConfig () {
 
-		// for each message; store it in a defined format
-		message := fmt.Sprintf("%s ==> Log Message: %v\n", time.Now(), messages)
+	appConfig := `
+<seelog type="sync">
+	<outputs>
+		<filter levels="trace">
+			<console formatid="plain"/>
+			<file path="./pkg/logs/common.log"/>
+		</filter>
 
-		// write the message to a file
-		err := logToFile(message, "log.txt")
-		if err != nil {
-			log.Println(err)
-		}
+		<filter levels="info">
+			<console formatid="plain"/>
+			<file path="./pkg/logs/common.log"/>
+		</filter>
 
-		log.Println(message)
+		<filter levels="warn">
+			<console formatid="plain" />
+			<file path="./pkg/logs/common.log"/>
+		</filter>
 
+		<filter levels="error">
+			<console formatid="error"/>
+			<file path="./pkg/logs/error.log"/>
+			<smtp formatid="erroremail" 
+				senderaddress="shiftrgh@gmail.com" 
+				sendername="PostIt Authentication Server" 
+				hostname="smtp.gmail.com" 
+				hostport="587" 
+				username="shiftrgh@gmail.com" 
+				password="yoforreal.com">
+				<recipient address="shiftrgh@gmail.com"/>
+			</smtp>
+		</filter>
+		
+		<filter levels="critical">
+			<console formatid="critical"/>
+			<file path="./pkg/logs/critical.log"/>
+			<smtp formatid="criticalemail" 
+				senderaddress="shiftrgh@gmail.com" 
+				sendername="PostIt Authentication Server" 
+				hostname="smtp.gmail.com" 
+				hostport="587" 
+				username="shiftrgh@gmail.com" 
+				password="yoforreal.com">
+				<recipient address="shiftrgh@gmail.com"/>
+			</smtp>
+		</filter>
+		
+	</outputs>
+	<formats>
+		<format id="plain" format="%Date/%Time %EscM(46)[%LEVEL]%EscM(49) %Msg%n%EscM(0)" />
+		<format id="error" format="%Date/%Time [%LEVEL] %RelFile %Func %Line %Msg%n" />
+		<format id="critical" format="%Date/%Time [%LEVEL] %RelFile %Func %Line %Msg%n" />
+		<format id="erroremail" format="Minor error on our server! %n%n%Time %Date [%LEVEL] %FullPath %n%RelFile %n%File  %n%Func %n%Msg%n %nSent by PostIt Scheduler Micro-Service"/>
+		<format id="criticalemail" format="Critical error on our server! %n%n%Time %Date [%LEVEL] %FullPath %n%RelFile %n%File  %n%Func %n%Msg%n %nSent by PostIt Scheduler Micro-Service"/>
+	</formats>
+</seelog>
+`
+
+	logger, err := see.LoggerFromConfigAsBytes([]byte(appConfig))
+	if err != nil {
+		log.Println(err)
+		return
+	}
+
+	UseLog(logger)
+}
+
+func UseLog(logger see.LoggerInterface)  {
+	Logger = logger
 }

@@ -5,7 +5,6 @@ import (
 	"net/http"
 	"postit-authentication-server/app/controller"
 	"postit-authentication-server/app/controller/auth"
-	"postit-authentication-server/pkg/logs"
 )
 
 //Route Create a single route object
@@ -71,7 +70,6 @@ func InitRoutes() *mux.Router {
 		var handler http.Handler
 
 		handler = route.Handler
-		handler = logs.HandlerLog(handler, route.Name)
 
 		router.Name(route.Name).
 			Methods(route.Method).

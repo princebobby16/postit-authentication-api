@@ -9,7 +9,6 @@ import (
 	"github.com/gorilla/handlers"
 	_ "github.com/joho/godotenv/autoload"
 	"golang.org/x/net/context"
-	"log"
 	"net/http"
 	"os"
 	"os/signal"
@@ -26,7 +25,7 @@ func init() {
 
 	key, err := rsa.GenerateKey(reader, bitSize)
 	if err != nil {
-		log.Println(err)
+		_ = logs.Logger.Error(err)
 		return
 	}
 
@@ -78,7 +77,7 @@ func main() {
 	var port string
 	port = os.Getenv("PORT")
 	if port == "" {
-		logs.Log("Defaulting to port 3576")
+		logs.Logger.Warn("Defaulting to port 3576")
 		port = "3576"
 	}
 
@@ -98,9 +97,9 @@ func main() {
 	defer db.Disconnect()
 	// Run our server in a goroutine so that it doesn't block.
 	go func() {
-		logs.Log("Server running on port", address)
+		logs.Logger.Info("Server running on port", address)
 		if err := server.ListenAndServe(); err != nil {
-			logs.Log(err)
+			logs.Logger.Error(err)
 		}
 	}()
 
@@ -123,7 +122,7 @@ func main() {
 	// Optionally, you could run server.Shutdown in a goroutine and block on
 	// <-ctx.Done() if your application should wait for other services
 	// to finalize based on context cancellation.
-	logs.Log("shutting down")
+	logs.Logger.Warn("shutting down")
 	os.Exit(0)
 }
 

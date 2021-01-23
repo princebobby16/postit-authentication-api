@@ -3,7 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="f29b6de9-e490-4bd5-b8f7-5affd15e1cd5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Godeps/Godeps.json" beforeDir="false" afterPath="$PROJECT_DIR$/Godeps/Godeps.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controller/auth/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller/auth/login.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controller/auth/refresh.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller/auth/refresh.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controller/auth/signup.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller/auth/signup.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controller/auth/test.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller/auth/test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controller/auth/validate.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller/auth/validate.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controller/social/access/facebook.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controller/social/access/instagram.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controller/social/access/linkedin.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controller/social/access/twitter.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/router/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/router/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/db/connection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/logs/logs.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/logs/logs.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/utils/utils.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/utils/utils.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/postit_authentication_server.go" beforeDir="false" afterPath="$PROJECT_DIR$/postit_authentication_server.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

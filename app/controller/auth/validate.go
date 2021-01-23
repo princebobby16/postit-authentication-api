@@ -16,15 +16,15 @@ func ValidateToken(w http.ResponseWriter, r *http.Request) {
 	transactionID := uuid.NewV4().String()
 	// get the trace-id
 	traceId := r.Header.Get("trace-id")
-	logs.Log("Trace Id: ", traceId)
+	logs.Logger.Info("Trace Id: ", traceId)
 	tokenHeader := strings.Split(r.Header.Get("Authorization"), "Bearer ")
 	tokenString := tokenHeader[1]
-	logs.Log("Token: ", tokenString)
+	logs.Logger.Info("Token: ", tokenString)
 
 	// create a  new verifier to verify the token
 	verifier, err := jwt.NewVerifierHS(jwt.HS512, PrivateKey)
 	if err != nil {
-		logs.Log(err)
+		logs.Logger.Info(err)
 		w.WriteHeader(http.StatusInternalServerError)
 		_ = json.NewEncoder(w).Encode(struct {
 			Message string 				`json:"message"`
@@ -43,7 +43,7 @@ func ValidateToken(w http.ResponseWriter, r *http.Request) {
 	// use the verifier to parse the token
 	token, err := jwt.ParseString(tokenString, verifier)
 	if err != nil {
-		logs.Log(err)
+		logs.Logger.Info(err)
 		w.WriteHeader(http.StatusUnauthorized)
 		_ = json.NewEncoder(w).Encode(struct {
 			Message string 				`json:"message"`
@@ -62,7 +62,7 @@ func ValidateToken(w http.ResponseWriter, r *http.Request) {
 	// Compare the token Payload with its signature
 	err = verifier.Verify(token.Payload(), token.Signature())
 	if err != nil {
-		logs.Log(err)
+		logs.Logger.Info(err)
 		w.WriteHeader(http.StatusUnauthorized)
 		_ = json.NewEncoder(w).Encode(struct {
 			Message string 				`json:"message"`
@@ -78,7 +78,7 @@ func ValidateToken(w http.ResponseWriter, r *http.Request) {
 		})
 	}
 
-	logs.Log("Token is valid")
+	logs.Logger.Info("Token is valid")
 	w.WriteHeader(http.StatusOK)
 	_ = json.NewEncoder(w).Encode(struct {
 		Message string 				`json:"message"`

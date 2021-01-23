@@ -43,7 +43,7 @@ func ValidateHeaders(r *http.Request) (map[string]string, error) {
 few parameters */
 func SendErrorMessage(w http.ResponseWriter, r *http.Request, err error, message string, transactionId uuid.UUID, statusHeader int) {
 	w.WriteHeader(statusHeader)
-	logs.Log(err)
+	logs.Logger.Info(err)
 	_ = json.NewEncoder(w).Encode(models.StandardErrorResponse {
 		Message: message,
 		Meta:    models.MetaData{
@@ -58,7 +58,7 @@ func SendErrorMessage(w http.ResponseWriter, r *http.Request, err error, message
 
 func SendErrorSchemaMessage(w http.ResponseWriter, r *http.Request, err error, transactionId uuid.UUID, statusHeader int){
 	w.WriteHeader(statusHeader)
-	logs.Log(err)
+	logs.Logger.Info(err)
 	_ = json.NewEncoder(w).Encode(models.StandardErrorResponse {
 		Message: err.Error(),
 		Meta:    models.MetaData{
@@ -75,7 +75,7 @@ func GenerateSchemaName(name string) (string, error) {
 	var namespace string
 	newS := strings.Split(strings.ToLower(name), " ")
 	namespace = strings.Join(newS, "_")
-	logs.Log(namespace)
+	logs.Logger.Info(namespace)
 	return namespace, nil
 }
 
@@ -91,11 +91,11 @@ func ProvisionSchema(request models.SignUpRequest, passwordHash []byte) (string,
 	if err != nil {
 		return "", err
 	}
-	logs.Log(tenantNamespace)
+	logs.Logger.Info(tenantNamespace)
 
 	// create schema
 	query = fmt.Sprintf("CREATE SCHEMA %s", tenantNamespace)
-	logs.Log(query)
+	logs.Logger.Info(query)
 	_, err = connection.Exec(query)
 	if err != nil {
 		return "", errors.New("Company already exists!")
@@ -127,7 +127,7 @@ func ProvisionSchema(request models.SignUpRequest, passwordHash []byte) (string,
 	if err != nil {
 		return "", err
 	}
-	logs.Log(query)
+	logs.Logger.Info(query)
 
 	companyId := uuid.NewV4()
 	query = `INSERT INTO postit_auth.company (company_id,admin_first_name,admin_last_name,company_name,company_email,company_phone_numbers,company_address,company_website,company_ghana_post_address,namespace) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)`
@@ -147,7 +147,7 @@ func ProvisionSchema(request models.SignUpRequest, passwordHash []byte) (string,
 		query := fmt.Sprintf("DROP SCHEMA %s CASCADE;", tenantNamespace)
 		_, newErr := connection.Exec(query)
 		if newErr != nil {
-			logs.Log(err)
+			logs.Logger.Info(err)
 			return "", errors.New("Something went wrong! contact admin!")
 		}
 		return "", errors.New("company already exists")
@@ -155,7 +155,7 @@ func ProvisionSchema(request models.SignUpRequest, passwordHash []byte) (string,
 	request.CompanyId = companyId.String()
 	request.Password = ""
 
-	logs.Log(query)
+	logs.Logger.Info(query)
 	query = `INSERT INTO postit_auth.login(login_id, username, password) VALUES($1,$2,$3)`
 	_, err = db.Connection.Exec(query,
 		&companyId,
@@ -166,12 +166,12 @@ func ProvisionSchema(request models.SignUpRequest, passwordHash []byte) (string,
 		query := fmt.Sprintf("DROP SCHEMA %s CASCADE;", tenantNamespace)
 		_, err = connection.Exec(query)
 		if err != nil {
-			logs.Log(err)
+			logs.Logger.Info(err)
 			return "", errors.New("Something went wrong! contact admin!")
 		}
 		return "", errors.New("Username already exists")
 	}
-	logs.Log(query)
+	logs.Logger.Info(query)
 
 	return tenantNamespace, nil
 }

@@ -18,7 +18,7 @@ const cost = 10
 
 func SignUp(w http.ResponseWriter, r *http.Request) {
 	transactionId := uuid.NewV4()
-	logs.Log("TransactionId: ", transactionId)
+	logs.Logger.Info("TransactionId: ", transactionId)
 
 	headers, err := utils.ValidateHeaders(r)
 	if err != nil {
@@ -33,8 +33,8 @@ func SignUp(w http.ResponseWriter, r *http.Request) {
 	log.Printf("Headers => TraceId: %s", traceId)
 
 	body, err := ioutil.ReadAll(r.Body)
-	logs.Log("Request Body in bytes: ", body)
-	logs.Log("Request Body as a string: ", string(body))
+	logs.Logger.Info("Request Body in bytes: ", body)
+	logs.Logger.Info("Request Body as a string: ", string(body))
 
 	var req models.SignUpRequest
 
@@ -43,9 +43,9 @@ func SignUp(w http.ResponseWriter, r *http.Request) {
 		utils.SendErrorMessage(w, r, err, "Something went wrong. Contact Admin", transactionId, http.StatusBadRequest)
 		return
 	}
-	logs.Log(req)
+	logs.Logger.Info(req)
 
-	logs.Log("Raw Password: ", req.Password)
+	logs.Logger.Info("Raw Password: ", req.Password)
 
 	// Hash the password
 	passwordHash, err := bcrypt.GenerateFromPassword([]byte(req.Password), cost)
@@ -53,7 +53,7 @@ func SignUp(w http.ResponseWriter, r *http.Request) {
 		utils.SendErrorMessage(w, r, err, "Invalid Password!", transactionId, http.StatusInternalServerError)
 		return
 	}
-	logs.Log("Hashed Password: ", passwordHash)
+	logs.Logger.Info("Hashed Password: ", passwordHash)
 
 	// Provision schema
 	tenantNamespace, err := utils.ProvisionSchema(req, passwordHash)
@@ -61,11 +61,11 @@ func SignUp(w http.ResponseWriter, r *http.Request) {
 		utils.SendErrorSchemaMessage(w, r, err, transactionId, http.StatusBadRequest)
 		return
 	}
-	logs.Log("Tenant Namespace: ", tenantNamespace)
+	logs.Logger.Info("Tenant Namespace: ", tenantNamespace)
 
 	signer, err := jwt.NewSignerHS(jwt.HS512, PrivateKey)
 	if err != nil {
-		logs.Log(err)
+		logs.Logger.Info(err)
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
@@ -85,7 +85,7 @@ func SignUp(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusUnauthorized)
 		return
 	}
-	logs.Log(string(b))
+	logs.Logger.Info(string(b))
 
 	builder := jwt.NewBuilder(signer)
 	token, err := builder.Build(claims)

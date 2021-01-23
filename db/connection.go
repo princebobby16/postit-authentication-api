@@ -25,14 +25,14 @@ func Connect() {
 		panic(err)
 	}
 
-	logs.Log("Connected to Postgres DB successfully")
+	logs.Logger.Info("Connected to Postgres DB successfully")
 }
 
 func Disconnect() {
-	logs.Log("Attempting to disconnect from db....")
+	logs.Logger.Info("Attempting to disconnect from db....")
 	err := Connection.Close()
 	if err != nil {
-		logs.Log(err)
+		logs.Logger.Info(err)
 	}
-	logs.Log("Disconnected from db successfully...")
+	logs.Logger.Info("Disconnected from db successfully...")
 }
