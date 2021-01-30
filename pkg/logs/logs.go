@@ -73,15 +73,6 @@ func loadAppConfig () {
 		<filter levels="error">
 			<console formatid="error"/>
 			<file path="./pkg/logs/error.log"/>
-			<smtp formatid="erroremail" 
-				senderaddress="shiftrgh@gmail.com" 
-				sendername="PostIt Authentication Server" 
-				hostname="smtp.gmail.com" 
-				hostport="587" 
-				username="shiftrgh@gmail.com" 
-				password="yoforreal.com">
-				<recipient address="shiftrgh@gmail.com"/>
-			</smtp>
 		</filter>
 		
 		<filter levels="critical">
@@ -103,8 +94,7 @@ func loadAppConfig () {
 		<format id="plain" format="%Date/%Time %EscM(46)[%LEVEL]%EscM(49) %Msg%n%EscM(0)" />
 		<format id="error" format="%Date/%Time [%LEVEL] %RelFile %Func %Line %Msg%n" />
 		<format id="critical" format="%Date/%Time [%LEVEL] %RelFile %Func %Line %Msg%n" />
-		<format id="erroremail" format="Minor error on our server! %n%n%Time %Date [%LEVEL] %FullPath %n%RelFile %n%File  %n%Func %n%Msg%n %nSent by PostIt Scheduler Micro-Service"/>
-		<format id="criticalemail" format="Critical error on our server! %n%n%Time %Date [%LEVEL] %FullPath %n%RelFile %n%File  %n%Func %n%Msg%n %nSent by PostIt Scheduler Micro-Service"/>
+		<format id="criticalemail" format="Critical error POSTIT AUTH SERVER! %n%n%Time %Date [%LEVEL] %FullPath %n%RelFile %n%File  %n%Func %n%Line %n%Msg%n %nSent by POSTIT AUTH SERVER"/>
 	</formats>
 </seelog>
 `

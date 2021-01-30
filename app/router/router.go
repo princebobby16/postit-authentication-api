@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"postit-authentication-server/app/controller"
 	"postit-authentication-server/app/controller/auth"
+	"postit-authentication-server/app/controller/user"
 )
 
 //Route Create a single route object
@@ -38,6 +39,12 @@ func InitRoutes() *mux.Router {
 			Path: 	"/login",
 			Method: http.MethodPost,
 			Handler: auth.Login,
+		},
+		Route{
+			Name:    "Delete User",
+			Path:    "/user/delete",
+			Method:  http.MethodGet,
+			Handler: user.DeleteUser,
 		},
 		// Refresh Token
 		Route{

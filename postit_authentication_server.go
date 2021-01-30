@@ -99,7 +99,7 @@ func main() {
 	go func() {
 		logs.Logger.Info("Server running on port", address)
 		if err := server.ListenAndServe(); err != nil {
-			logs.Logger.Error(err)
+			logs.Logger.Warn(err)
 		}
 	}()
 
