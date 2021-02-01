@@ -7,7 +7,6 @@ import (
 	"github.com/twinj/uuid"
 	"golang.org/x/crypto/bcrypt"
 	"io/ioutil"
-	"log"
 	"net/http"
 	"postit-authentication-server/db"
 	"postit-authentication-server/pkg/logs"
@@ -43,7 +42,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	//Get the relevant headers
 	traceId := headers["trace-id"]
 	// Logging the headers
-	log.Printf("Headers => TraceId: %s", traceId)
+	logs.Logger.Info("Headers TraceId: ", traceId)
 
 	body, err := ioutil.ReadAll(r.Body)
 	if err != nil {
@@ -112,7 +111,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 
 	signer, err := jwt.NewSignerHS(jwt.HS512, PrivateKey)
 	if err != nil {
-		logs.Logger.Error(err)
+		_ = logs.Logger.Error(err)
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
@@ -128,16 +127,16 @@ func Login(w http.ResponseWriter, r *http.Request) {
 
 	b, err := signer.Sign(PrivateKey)
 	if err != nil {
-		logs.Logger.Error(err)
+		_ = logs.Logger.Error(err)
 		w.WriteHeader(http.StatusUnauthorized)
 		return
 	}
-	logs.Logger.Error(string(b))
+	logs.Logger.Info(string(b))
 
 	builder := jwt.NewBuilder(signer)
 	token, err := builder.Build(claims)
 	if err != nil {
-		logs.Logger.Error(err)
+		_ = logs.Logger.Error(err)
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
