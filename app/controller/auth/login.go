@@ -144,7 +144,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Add("token", token.String())
 	w.Header().Add("tenant-namespace", tenantNamespace)
-	err = json.NewEncoder(w).Encode(&models.LoginResponseData{
+	err = json.NewEncoder(w).Encode(&models.LoginResponseData {
 		CompanyData: companyDetails,
 		Meta: models.MetaData {
 			TraceId:       headers["trace-id"],
