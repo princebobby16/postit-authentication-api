@@ -1,6 +1,4 @@
-app.yaml
-log.txt
-.env
 .idea
+.env
 postit_auth_server.exe
 /pkg/logs/*.log

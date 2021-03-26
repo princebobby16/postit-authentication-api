@@ -116,9 +116,9 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	claims := &jwt.RegisteredClaims{
+	claims := &jwt.RegisteredClaims {
 		ID:        uuid.NewV4().String(),
-		Audience:  []string{tenantNamespace},
+		Audience:  []string{"postit-audience", tenantNamespace},
 		Issuer:    "POSTIT",
 		Subject:   "User Login Authentication",
 		ExpiresAt: jwt.NewNumericDate(time.Now().Add(20 * time.Minute)),
@@ -146,7 +146,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("tenant-namespace", tenantNamespace)
 	err = json.NewEncoder(w).Encode(&models.LoginResponseData{
 		CompanyData: companyDetails,
-		Meta: models.MetaData{
+		Meta: models.MetaData {
 			TraceId:       headers["trace-id"],
 			TransactionId: transactionId.String(),
 			TimeStamp:     time.Now(),

@@ -2,6 +2,7 @@ package router
 
 import (
 	"github.com/gorilla/mux"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"net/http"
 	"postit-authentication-server/app/controller"
 	"postit-authentication-server/app/controller/auth"
@@ -74,14 +75,11 @@ func InitRoutes() *mux.Router {
 	}
 
 	for _, route := range routes {
-		var handler http.Handler
-
-		handler = route.Handler
-
 		router.Name(route.Name).
 			Methods(route.Method).
 			Path(route.Path).
-			Handler(handler)
+			Handler(route.Handler)
+		router.Handle("/metrics", promhttp.Handler())
 	}
 
 	return router
