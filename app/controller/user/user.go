@@ -5,13 +5,13 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/twinj/uuid"
+	"gitlab.com/pbobby001/postit-authentication-server/db"
+	"gitlab.com/pbobby001/postit-authentication-server/pkg/logs"
+	"gitlab.com/pbobby001/postit-authentication-server/pkg/models"
+	"gitlab.com/pbobby001/postit-authentication-server/pkg/utils"
 	"log"
 	"net/http"
 	"os"
-	"postit-authentication-server/db"
-	"postit-authentication-server/pkg/logs"
-	"postit-authentication-server/pkg/models"
-	"postit-authentication-server/pkg/utils"
 	"time"
 )
 

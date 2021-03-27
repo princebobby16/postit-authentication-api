@@ -3,9 +3,9 @@ package db
 import (
 	"database/sql"
 	_ "github.com/lib/pq"
+	"gitlab.com/pbobby001/postit-authentication-server/pkg/logs"
 	"log"
 	"os"
-	"postit-authentication-server/pkg/logs"
 )
 
 var Connection *sql.DB

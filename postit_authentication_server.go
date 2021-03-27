@@ -8,14 +8,14 @@ import (
 	"flag"
 	"github.com/gorilla/handlers"
 	_ "github.com/joho/godotenv/autoload"
+	"gitlab.com/pbobby001/postit-authentication-server/app/middlewares"
+	"gitlab.com/pbobby001/postit-authentication-server/app/router"
+	"gitlab.com/pbobby001/postit-authentication-server/db"
+	"gitlab.com/pbobby001/postit-authentication-server/pkg/logs"
 	"golang.org/x/net/context"
 	"net/http"
 	"os"
 	"os/signal"
-	"postit-authentication-server/app/middlewares"
-	"postit-authentication-server/app/router"
-	"postit-authentication-server/db"
-	"postit-authentication-server/pkg/logs"
 	"time"
 )
 

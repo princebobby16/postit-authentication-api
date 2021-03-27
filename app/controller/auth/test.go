@@ -2,10 +2,10 @@ package auth
 
 import (
 	"encoding/json"
+	"gitlab.com/pbobby001/postit-authentication-server/pkg/logs"
 	"golang.org/x/crypto/bcrypt"
 	"io/ioutil"
 	"net/http"
-	"postit-authentication-server/pkg/logs"
 )
 
 func Test(w http.ResponseWriter, r *http.Request) {

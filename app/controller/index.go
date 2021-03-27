@@ -2,8 +2,8 @@ package controller
 
 import (
 	"encoding/json"
+	"gitlab.com/pbobby001/postit-authentication-server/pkg/models"
 	"net/http"
-	"postit-authentication-server/pkg/models"
 )
 
 func HealthCheckHandler(w http.ResponseWriter, r *http.Request) {

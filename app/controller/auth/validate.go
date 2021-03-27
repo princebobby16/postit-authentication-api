@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"github.com/cristalhq/jwt"
 	"github.com/twinj/uuid"
+	"gitlab.com/pbobby001/postit-authentication-server/pkg/logs"
+	"gitlab.com/pbobby001/postit-authentication-server/pkg/models"
 	"net/http"
-	"postit-authentication-server/pkg/logs"
-	"postit-authentication-server/pkg/models"
 	"strings"
 	"time"
 )
@@ -22,7 +22,7 @@ func ValidateToken(w http.ResponseWriter, r *http.Request) {
 	logs.Logger.Info("Token: ", tokenString)
 
 	// create a  new verifier to verify the token
-	verifier, err := jwt.NewVerifierHS(jwt.HS512, PrivateKey)
+	verifier, err := jwt.NewHS512(PrivateKey)
 	if err != nil {
 		logs.Logger.Info(err)
 		w.WriteHeader(http.StatusInternalServerError)
@@ -41,7 +41,7 @@ func ValidateToken(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// use the verifier to parse the token
-	token, err := jwt.ParseString(tokenString, verifier)
+	token, err := jwt.Parse([]byte(tokenString))
 	if err != nil {
 		logs.Logger.Info(err)
 		w.WriteHeader(http.StatusUnauthorized)

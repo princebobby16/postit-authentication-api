@@ -3,10 +3,10 @@ package router
 import (
 	"github.com/gorilla/mux"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
+	"gitlab.com/pbobby001/postit-authentication-server/app/controller"
+	"gitlab.com/pbobby001/postit-authentication-server/app/controller/auth"
+	"gitlab.com/pbobby001/postit-authentication-server/app/controller/user"
 	"net/http"
-	"postit-authentication-server/app/controller"
-	"postit-authentication-server/app/controller/auth"
-	"postit-authentication-server/app/controller/user"
 )
 
 //Route Create a single route object

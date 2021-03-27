@@ -4,13 +4,13 @@ import (
 	"encoding/json"
 	"github.com/cristalhq/jwt"
 	"github.com/twinj/uuid"
+	"gitlab.com/pbobby001/postit-authentication-server/pkg/logs"
+	"gitlab.com/pbobby001/postit-authentication-server/pkg/models"
+	"gitlab.com/pbobby001/postit-authentication-server/pkg/utils"
 	"golang.org/x/crypto/bcrypt"
 	"io/ioutil"
 	"log"
 	"net/http"
-	"postit-authentication-server/pkg/logs"
-	"postit-authentication-server/pkg/models"
-	"postit-authentication-server/pkg/utils"
 	"time"
 )
 
@@ -63,38 +63,38 @@ func SignUp(w http.ResponseWriter, r *http.Request) {
 	}
 	logs.Logger.Info("Tenant Namespace: ", tenantNamespace)
 
-	signer, err := jwt.NewSignerHS(jwt.HS512, PrivateKey)
+	signer, err := jwt.NewHS512(PrivateKey)
 	if err != nil {
-		logs.Logger.Info(err)
+		_ = logs.Logger.Error(err)
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
 
-	claims := &jwt.RegisteredClaims{
+	claims := &jwt.StandardClaims {
 		ID:        uuid.NewV4().String(),
-		Audience:  []string{tenantNamespace},
+		Audience:  []string{"postit-audience", tenantNamespace},
 		Issuer:    "POSTIT",
 		Subject:   "User Login Authentication",
-		ExpiresAt: jwt.NewNumericDate(time.Now().Add(10 * time.Minute)),
-		IssuedAt:  jwt.NewNumericDate(time.Now()),
+		ExpiresAt: jwt.Timestamp(time.Now().Add(20 * time.Minute).Unix()),
+		IssuedAt:  jwt.Timestamp(time.Now().Unix()),
 	}
 
 	b, err := signer.Sign(PrivateKey)
 	if err != nil {
-		log.Println(err)
+		_ = logs.Logger.Error(err)
 		w.WriteHeader(http.StatusUnauthorized)
 		return
 	}
 	logs.Logger.Info(string(b))
 
-	builder := jwt.NewBuilder(signer)
+	builder := jwt.NewTokenBuilder(signer)
 	token, err := builder.Build(claims)
 	if err != nil {
-		log.Println(err)
+		_ = logs.Logger.Error(err)
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
-	log.Println(token.SecureString())
+	logs.Logger.Info(token.String())
 
 	w.Header().Add("Token", token.String())
 	w.Header().Add("Tenant-Namespace", tenantNamespace)

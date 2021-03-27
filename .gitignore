@@ -1,4 +1,5 @@
 .idea
 .env
 postit_auth_server.exe
+postit-authentication-server.exe
 /pkg/logs/*.log
