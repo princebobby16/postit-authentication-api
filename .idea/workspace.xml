@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f29b6de9-e490-4bd5-b8f7-5affd15e1cd5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
@@ -225,16 +226,16 @@
     <property name="settings.editor.selected.configurable" value="go" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Prince Bobby\go\src\postit-authentication-server\app" />
+      <recent name="C:\Users\Prince Bobby\go\src\postit-authentication-server\db" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Prince Bobby\Desktop\postit\postit-authentication-server" />
       <recent name="C:\Users\Prince Bobby\go\src\postit-authentication-server" />
       <recent name="C:\Users\Prince Bobby\go\src\postit-authentication-server\pkg\logs" />
       <recent name="C:\Users\Prince Bobby\go\src\postit-authentication-server\app\middleware" />
       <recent name="C:\Users\Prince Bobby\go\src\postit-authentication-server\app\router" />
-      <recent name="C:\Users\Prince Bobby\go\src\postit-authentication-server\db" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Prince Bobby\go\src\postit-authentication-server\app" />
-      <recent name="C:\Users\Prince Bobby\go\src\postit-authentication-server\db" />
     </key>
   </component>
   <component name="RunManager">
