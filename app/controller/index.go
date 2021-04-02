@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-func HealthCheckHandler(w http.ResponseWriter, r *http.Request) {
+func HealthCheckHandler(w http.ResponseWriter, _ *http.Request) {
 	resp := &models.HealthCheck{
 		Status:  "Alive",
 		ApplicationName: "PostIt Authentication",

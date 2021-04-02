@@ -98,7 +98,7 @@ func ProvisionSchema(request models.SignUpRequest, passwordHash []byte) (string,
 	logs.Logger.Info(query)
 	_, err = connection.Exec(query)
 	if err != nil {
-		return "", errors.New("Company already exists!")
+		return "", errors.New("company already exists!")
 	}
 
 	// create tables
@@ -151,7 +151,7 @@ func ProvisionSchema(request models.SignUpRequest, passwordHash []byte) (string,
 		_, newErr := connection.Exec(query)
 		if newErr != nil {
 			logs.Logger.Info(err)
-			return "", errors.New("Something went wrong! contact admin!")
+			return "", errors.New("something went wrong! contact admin!")
 		}
 		return "", errors.New("company already exists")
 	}
@@ -170,10 +170,11 @@ func ProvisionSchema(request models.SignUpRequest, passwordHash []byte) (string,
 		_, err = connection.Exec(query)
 		if err != nil {
 			logs.Logger.Info(err)
-			return "", errors.New("Something went wrong! contact admin!")
+			return "", errors.New("something went wrong! contact admin!")
 		}
-		return "", errors.New("Username already exists")
+		return "", errors.New("username already exists")
 	}
+
 	logs.Logger.Info(query)
 
 	return tenantNamespace, nil

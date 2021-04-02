@@ -78,7 +78,6 @@ func InitRoutes() *mux.Router {
 			Methods(route.Method).
 			Path(route.Path).
 			Handler(route.Handler)
-		//router.Handle("/metrics", promhttp.Handler())
 	}
 
 	return router

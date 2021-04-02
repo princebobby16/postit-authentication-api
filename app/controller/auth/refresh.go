@@ -15,7 +15,7 @@ func RefreshToken(w http.ResponseWriter, r *http.Request) {
 
 	// Transaction Id
 	transactionId := uuid.NewV4()
-	logs.Logger.Info("TransactionId: ", transactionId)
+	logs.Logger.Infof("TransactionId: %s", transactionId)
 
 	// Get the token from the header
 	token := r.Header.Get("token")
@@ -58,7 +58,7 @@ func RefreshToken(w http.ResponseWriter, r *http.Request) {
 	logs.Logger.Info("new audience: ", newClaims.Audience)
 	signer, err := jwt.NewHS512(PrivateKey)
 	if err != nil {
-		logs.Logger.Error(err)
+		_ = logs.Logger.Error(err)
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
@@ -81,5 +81,5 @@ func RefreshToken(w http.ResponseWriter, r *http.Request) {
 	log.Println(newToken.String())
 	w.Header().Add("refresh-token", newToken.String())
 	w.WriteHeader(http.StatusOK)
-	w.Write([]byte("token created"))
+	_, _ = w.Write([]byte("token created"))
 }

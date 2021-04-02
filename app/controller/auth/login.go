@@ -22,7 +22,7 @@ var (
 func init() {
 	data, err := ioutil.ReadFile("private.pem")
 	if err != nil {
-		logs.Logger.Error(err)
+		_ = logs.Logger.Error(err)
 	}
 	PrivateKey = data
 }
@@ -49,7 +49,14 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		utils.SendErrorMessage(w, r, err, "Something went wrong. Contact Admin", transactionId, http.StatusBadRequest)
 		return
 	}
-	defer r.Body.Close()
+	defer func() {
+		err = r.Body.Close()
+		if err != nil {
+			logs.Logger.Info(err)
+			w.WriteHeader(http.StatusInternalServerError)
+			return
+		}
+	}()
 
 	logs.Logger.Info("Request Object: ", string(body))
 
