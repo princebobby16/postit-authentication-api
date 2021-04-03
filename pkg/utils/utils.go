@@ -44,9 +44,9 @@ few parameters */
 func SendErrorMessage(w http.ResponseWriter, r *http.Request, err error, message string, transactionId uuid.UUID, statusHeader int) {
 	w.WriteHeader(statusHeader)
 	logs.Logger.Info(err)
-	_ = json.NewEncoder(w).Encode(models.StandardErrorResponse {
+	_ = json.NewEncoder(w).Encode(models.StandardErrorResponse{
 		Message: message,
-		Meta:    models.MetaData{
+		Meta: models.MetaData{
 			TraceId:       r.Header.Get("trace-id"),
 			TransactionId: transactionId.String(),
 			TimeStamp:     time.Now(),
@@ -56,12 +56,12 @@ func SendErrorMessage(w http.ResponseWriter, r *http.Request, err error, message
 	return
 }
 
-func SendErrorSchemaMessage(w http.ResponseWriter, r *http.Request, err error, transactionId uuid.UUID, statusHeader int){
+func SendErrorSchemaMessage(w http.ResponseWriter, r *http.Request, err error, transactionId uuid.UUID, statusHeader int) {
 	w.WriteHeader(statusHeader)
 	logs.Logger.Info(err)
-	_ = json.NewEncoder(w).Encode(models.StandardErrorResponse {
+	_ = json.NewEncoder(w).Encode(models.StandardErrorResponse{
 		Message: err.Error(),
-		Meta:    models.MetaData{
+		Meta: models.MetaData{
 			TraceId:       r.Header.Get("trace-id"),
 			TransactionId: transactionId.String(),
 			TimeStamp:     time.Now(),
@@ -98,39 +98,57 @@ func ProvisionSchema(request models.SignUpRequest, passwordHash []byte) (string,
 	logs.Logger.Info(query)
 	_, err = connection.Exec(query)
 	if err != nil {
-		return "", errors.New("company already exists!")
+		return "", errors.New("company already exists")
 	}
 
 	// create tables
 	query = fmt.Sprintf(
-		"CREATE TABLE IF NOT EXISTS %s.post(post_id uuid UNIQUE NOT NULL, post_message text NOT NULL, post_image bytea, image_extension character varying(200), hash_tags text[], post_status boolean NOT NULL, post_priority boolean NOT NULL, created_at timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP, updated_at timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (post_id)); CREATE TABLE IF NOT EXISTS %s.schedule( schedule_id uuid UNIQUE NOT NULL, schedule_title character varying(200), post_to_feed boolean NOT NULL, schedule_from timestamp with time zone NOT NULL, schedule_to timestamp with time zone NOT NULL, post_ids character varying(200)[] NOT NULL, duration_per_post float NOT NULL, created_at timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP, updated_at timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (schedule_id)); CREATE TABLE IF NOT EXISTS %s.scheduled_post(scheduled_post_id uuid NOT NULL, post_id uuid NOT NULL, post_message text NOT NULL, post_image bytea, image_extension character varying(200), hash_tags text[], post_status boolean NOT NULL, post_priority boolean NOT NULL, created_at timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP, updated_at timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP); CREATE TABLE IF NOT EXISTS %s.application_info\n(\n    application_uuid uuid UNIQUE NOT NULL,\n    application_name character varying (200) NOT NULL,\n    application_id character varying(200) UNIQUE NOT NULL,\n    application_secret character varying (200) NOT NULL,\n    application_url character varying (200) NOT NULL,\n    user_access_token text NOT NULL,\n    expires_in integer NOT NULL,\n    user_name character varying (200) UNIQUE NOT NULL,\n  user_id character varying (200) UNIQUE NOT NULL,\n    created_at timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,\n    updated_at timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,\n PRIMARY KEY(application_uuid)); CREATE TABLE IF NOT EXISTS %s.s_status(schedule_id uuid UNIQUE NOT NULL,\n    schedule_title character varying (200) UNIQUE NOT NULL,\n    schedule_from timestamp with time zone NOT NULL,\n    schedule_to timestamp with time zone NOT NULL,\n    post_count integer NOT NULL,\n    created_at timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,\n updated_at timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,\n PRIMARY KEY(schedule_id));",
-		tenantNamespace, tenantNamespace, tenantNamespace, tenantNamespace, tenantNamespace)
+		"CREATE TABLE IF NOT EXISTS %s.post("+
+			"post_id uuid UNIQUE NOT NULL, "+
+			"facebook_post_id character varying(200), "+
+			"post_message text NOT NULL, "+
+			"post_images bytea[], "+
+			"image_paths character varying(200), "+
+			"hash_tags text[], "+
+			"post_status boolean NOT NULL, "+
+			"scheduled boolean NOT NULL, "+
+			"post_priority boolean NOT NULL, "+
+			"created_at timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP, "+
+			"updated_at timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP, "+
+			"PRIMARY KEY (post_id)); "+
+			"CREATE TABLE IF NOT EXISTS %s.schedule("+
+			" schedule_id uuid UNIQUE NOT NULL, "+
+			"schedule_title character varying(200), "+
+			"post_to_feed boolean NOT NULL, "+
+			"schedule_from timestamp with time zone NOT NULL, "+
+			"schedule_to timestamp with time zone NOT NULL, "+
+			"post_ids character varying(200)[] NOT NULL, "+
+			"duration_per_post float NOT NULL, "+
+			"facebook character varying(200)[] NOT NULL, "+
+			"twitter character varying(200)[] NOT NULL, "+
+			"linked_in character varying(200)[] NOT NULL, "+
+			"is_due boolean, "+
+			"created_at timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP, "+
+			"updated_at timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP, "+
+			"PRIMARY KEY(schedule_id));"+
+			"CREATE TABLE IF NOT EXISTS %s.application_info("+
+			"application_uuid uuid UNIQUE NOT NULL, "+
+			"application_name character varying (200) NOT NULL, "+
+			"application_id character varying(200) UNIQUE NOT NULL, "+
+			"application_secret character varying (200) NOT NULL, "+
+			"application_url character varying (200) NOT NULL, "+
+			"user_access_token text NOT NULL, "+
+			"expires_in integer NOT NULL, "+
+			"user_name character varying (200) UNIQUE NOT NULL, "+
+			"user_id character varying (200) UNIQUE NOT NULL, "+
+			"created_at timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP, "+
+			"updated_at timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP, "+
+			"PRIMARY KEY(application_uuid));",
+		tenantNamespace, tenantNamespace, tenantNamespace)
 	_, err = connection.Exec(query)
 	if err != nil {
 		return "", err
 	}
-
-	// create triggers
-	query = fmt.Sprintf(
-		"create or replace function %s.store_schedule_data_in_scheduled_post_table_ait() returns trigger as $$\n\nDECLARE\n--     schedule vars\n    iD           uuid := NEW.schedule_id;\n    scheduleId   uuid;\n    scheduleFrom timestamp;\n    scheduleTo   timestamp;\n    postList     varchar(200)[]; postId       uuid; postMessage  text; postImage    bytea; imageExtension character varying (200);\n    hashTags     text[];\n    postStatus boolean;\n    postPriority boolean;\n\nBEGIN\n\n--     Get the schedule data\n    SELECT schedule_id, schedule_from, schedule_to, post_ids INTO scheduleId, scheduleFrom, scheduleTo, postList FROM %s.schedule WHERE schedule_id = iD; FOREACH postId IN ARRAY postList\n    LOOP\n  SELECT post_message, post_image, image_extension, hash_tags, post_priority, post_status INTO postMessage, postImage, imageExtension, hashTags, postPriority, postStatus FROM %s.post WHERE post_id = postId;\n\n--      Store it in the scheduled data table\n        INSERT INTO %s.scheduled_post(scheduled_post_id, post_id, post_message, post_image, image_extension, hash_tags, post_status, post_priority) VALUES (scheduleId, postId, postMessage, postImage, imageExtension, hashTags, postStatus, postPriority);\n\n    END LOOP;\n\n    RETURN NEW;\n\nEND;\n$$ language plpgsql;\n\nDROP TRIGGER IF EXISTS schedule_ait ON %s.schedule;\nCREATE TRIGGER schedule_ait AFTER INSERT ON %s.schedule FOR EACH ROW EXECUTE PROCEDURE %s.store_schedule_data_in_scheduled_post_table_ait();\n-- +goose StatementEnd\n\n-- +goose StatementBegin\ncreate or replace function %s.delete_posts_from_scheduled_post_table_bdt() returns trigger as $$\n\nDECLARE\n\n    schedule_id uuid = OLD.schedule_id;\n\nBEGIN\n\n    DELETE FROM %s.scheduled_post WHERE scheduled_post_id = schedule_id;\n\n    RETURN OLD;\n\nEND;\n$$ language plpgsql;\n\nDROP TRIGGER IF EXISTS schedule_bdt ON %s.schedule;\nCREATE TRIGGER schedule_bdt BEFORE DELETE ON %s.schedule FOR EACH ROW EXECUTE PROCEDURE %s.delete_posts_from_scheduled_post_table_bdt();",
-		tenantNamespace,
-		tenantNamespace,
-		tenantNamespace,
-		tenantNamespace,
-		tenantNamespace,
-		tenantNamespace,
-		tenantNamespace,
-		tenantNamespace,
-		tenantNamespace,
-		tenantNamespace,
-		tenantNamespace,
-		tenantNamespace,
-	)
-	_, err = connection.Exec(query)
-	if err != nil {
-		return "", err
-	}
-	logs.Logger.Info(query)
 
 	companyId := uuid.NewV4()
 	query = `INSERT INTO postit_auth.company (company_id,admin_first_name,admin_last_name,company_name,company_email,company_phone_numbers,company_address,company_website,company_ghana_post_address,namespace) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)`
@@ -151,7 +169,7 @@ func ProvisionSchema(request models.SignUpRequest, passwordHash []byte) (string,
 		_, newErr := connection.Exec(query)
 		if newErr != nil {
 			logs.Logger.Info(err)
-			return "", errors.New("something went wrong! contact admin!")
+			return "", errors.New("unable to reverse transaction")
 		}
 		return "", errors.New("company already exists")
 	}
@@ -170,7 +188,7 @@ func ProvisionSchema(request models.SignUpRequest, passwordHash []byte) (string,
 		_, err = connection.Exec(query)
 		if err != nil {
 			logs.Logger.Info(err)
-			return "", errors.New("something went wrong! contact admin!")
+			return "", errors.New("unable to reverse transaction")
 		}
 		return "", errors.New("username already exists")
 	}

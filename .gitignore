@@ -1,5 +1,4 @@
-.idea
+.idea/
 .env
-postit_auth_server.exe
-postit-authentication-server.exe
 /pkg/logs/*.log
+go_build_gitlab_com_pbobby001_postit_authentication_server.exe

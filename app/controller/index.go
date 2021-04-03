@@ -8,15 +8,15 @@ import (
 
 func HealthCheckHandler(w http.ResponseWriter, _ *http.Request) {
 	resp := &models.HealthCheck{
-		Status:  "Alive",
-		ApplicationName: "PostIt Authentication",
-		Version: 0.1,
-		Author:  "Prince Bobby",
-		Email:   "princebobby506@gmail.com",
-		Company: "Shiftr GH",
-		Owner:   "Shiftr GH",
+		Status:          "Alive",
+		ApplicationName: "PostIt Authentication Server",
+		Version:         0.1,
+		Author:          "Prince Bobby",
+		Email:           "princebobby506@gmail.com",
+		Company:         "Shiftr GH",
+		Owner:           "Shiftr GH",
 	}
 
 	w.WriteHeader(http.StatusOK)
-	 _ = json.NewEncoder(w).Encode(resp)
+	_ = json.NewEncoder(w).Encode(resp)
 }

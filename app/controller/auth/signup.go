@@ -70,7 +70,7 @@ func SignUp(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	claims := &jwt.StandardClaims {
+	claims := &jwt.StandardClaims{
 		ID:        uuid.NewV4().String(),
 		Audience:  []string{"postit-audience", tenantNamespace},
 		Issuer:    "POSTIT",
@@ -94,13 +94,13 @@ func SignUp(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
-	logs.Logger.Info(token.String())
+	logs.Logger.Info(string(token.Raw()))
 
-	w.Header().Add("Token", token.String())
+	w.Header().Add("Token", string(token.Raw()))
 	w.Header().Add("Tenant-Namespace", tenantNamespace)
-	err = json.NewEncoder(w).Encode(&models.LoginResponseData {
+	err = json.NewEncoder(w).Encode(&models.LoginResponseData{
 		CompanyData: req,
-		Meta: models.MetaData {
+		Meta: models.MetaData{
 			TraceId:       headers["trace-id"],
 			TransactionId: transactionId.String(),
 			TimeStamp:     time.Now(),

@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f29b6de9-e490-4bd5-b8f7-5affd15e1cd5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controller/auth/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller/auth/login.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controller/auth/refresh.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller/auth/refresh.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controller/auth/signup.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller/auth/signup.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controller/index.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller/index.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/utils/utils.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/utils/utils.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,10 +69,9 @@
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
-    <configuration name="postit-authentication-server" type="GoApplicationRunConfiguration" factoryName="Go Application">
+    <configuration name="go build gitlab.com/pbobby001/postit-authentication-server" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
       <module name="postit-authentication-server" />
       <working_directory value="$PROJECT_DIR$" />
-      <go_parameters value="-i" />
       <EXTENSION ID="net.ashald.envfile">
         <option name="IS_ENABLED" value="false" />
         <option name="IS_SUBST" value="false" />
@@ -83,8 +83,8 @@
         </ENTRIES>
       </EXTENSION>
       <kind value="PACKAGE" />
-      <filePath value="$PROJECT_DIR$" />
-      <package value="C:\Users\Prince Bobby\go\src\postit-authentication-server" />
+      <filePath value="$PROJECT_DIR$/postit_authentication_server.go" />
+      <package value="gitlab.com/pbobby001/postit-authentication-server" />
       <directory value="$PROJECT_DIR$" />
       <output_directory value="$PROJECT_DIR$" />
       <method v="2" />
@@ -121,10 +121,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="71" y="210" key="#SQL_Dialects/0.0.1366.738@0.0.1366.738" timestamp="1616771293031" />
-    <state x="137" y="22" width="1092" height="716" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1616785038425">
+    <state x="137" y="0" width="1092" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1617474575584">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="137" y="22" width="1092" height="716" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1616785038425" />
+    <state x="137" y="0" width="1092" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1617474575584" />
     <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1616774426314">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -133,25 +133,33 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="430" y="233" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.738@0.0.1366.738" timestamp="1617401763260" />
-    <state width="1323" height="234" key="GridCell.Tab.0.bottom" timestamp="1616785070175">
+    <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1617474569825">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="234" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1616785070175" />
-    <state width="1323" height="234" key="GridCell.Tab.0.center" timestamp="1616785070174">
+    <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1617474569825" />
+    <state width="1323" height="234" key="GridCell.Tab.0.bottom" timestamp="1617477862231">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="234" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1616785070174" />
-    <state width="1323" height="234" key="GridCell.Tab.0.left" timestamp="1616785070174">
+    <state width="1323" height="234" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1617477862231" />
+    <state width="1323" height="234" key="GridCell.Tab.0.center" timestamp="1617477862231">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="234" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1616785070174" />
-    <state width="1323" height="234" key="GridCell.Tab.0.right" timestamp="1616785070175">
+    <state width="1323" height="234" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1617477862231" />
+    <state width="1323" height="234" key="GridCell.Tab.0.left" timestamp="1617477862230">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="234" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1616785070175" />
+    <state width="1323" height="234" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1617477862230" />
+    <state width="1323" height="234" key="GridCell.Tab.0.right" timestamp="1617477862231">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="234" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1617477862231" />
     <state width="210" height="457" key="HiddenNamespacesPopup" timestamp="1609201054218">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="210" height="457" key="HiddenNamespacesPopup/0.0.1366.738@0.0.1366.738" timestamp="1609201054218" />
+    <state x="275" y="101" key="Vcs.Push.Dialog.v2" timestamp="1617404923783">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="275" y="101" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1617404923783" />
   </component>
 </project>
