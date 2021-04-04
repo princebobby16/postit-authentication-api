@@ -147,13 +147,13 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusInternalServerError)
 		return
 	}
-	logs.Logger.Info(token.String())
+	logs.Logger.Info(string(token.Raw()))
 
-	w.Header().Add("token", token.String())
+	w.Header().Add("token", string(token.Raw()))
 	w.Header().Add("tenant-namespace", tenantNamespace)
-	err = json.NewEncoder(w).Encode(&models.LoginResponseData {
+	err = json.NewEncoder(w).Encode(&models.LoginResponseData{
 		CompanyData: companyDetails,
-		Meta: models.MetaData {
+		Meta: models.MetaData{
 			TraceId:       headers["trace-id"],
 			TransactionId: transactionId.String(),
 			TimeStamp:     time.Now(),

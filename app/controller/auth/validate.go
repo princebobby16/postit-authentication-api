@@ -79,7 +79,6 @@ func ValidateToken(w http.ResponseWriter, r *http.Request) {
 	}
 
 	logs.Logger.Info("Token is valid")
-	w.WriteHeader(http.StatusOK)
 	_ = json.NewEncoder(w).Encode(struct {
 		Message string 				`json:"message"`
 		Meta models.MetaData		`json:"meta"`
