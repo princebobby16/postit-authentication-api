@@ -60,16 +60,28 @@ func InitRoutes() *mux.Router {
 			Handler: auth.Test,
 		},
 		Route{
-			Name: "SignUp",
-			Path: "/signup",
-			Method: http.MethodPost,
+			Name:    "SignUp",
+			Path:    "/signup",
+			Method:  http.MethodPost,
 			Handler: auth.SignUp,
 		},
 		Route{
-			Name: "ValidateToken",
-			Path: "/validate",
-			Method: http.MethodPost,
+			Name:    "ValidateToken",
+			Path:    "/validate",
+			Method:  http.MethodPost,
 			Handler: auth.ValidateToken,
+		},
+		Route{
+			Name:    "UserProfile",
+			Path:    "/auth/profile",
+			Method:  http.MethodPost,
+			Handler: user.EditUserProfile,
+		},
+		Route{
+			Name:    "ChangePassword",
+			Path:    "/auth/password",
+			Method:  http.MethodPost,
+			Handler: user.ChangePassword,
 		},
 	}
 

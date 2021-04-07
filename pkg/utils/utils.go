@@ -43,7 +43,7 @@ func ValidateHeaders(r *http.Request) (map[string]string, error) {
 few parameters */
 func SendErrorMessage(w http.ResponseWriter, r *http.Request, err error, message string, transactionId uuid.UUID, statusHeader int) {
 	w.WriteHeader(statusHeader)
-	logs.Logger.Info(err)
+	_ = logs.Logger.Error(err)
 	_ = json.NewEncoder(w).Encode(models.StandardErrorResponse{
 		Message: message,
 		Meta: models.MetaData{
