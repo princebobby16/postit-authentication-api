@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"encoding/json"
 	"fmt"
+	"github.com/lib/pq"
 	"github.com/twinj/uuid"
 	"gitlab.com/pbobby001/postit-authentication-server/db"
 	"gitlab.com/pbobby001/postit-authentication-server/pkg/logs"
@@ -177,6 +178,78 @@ func ChangePassword(w http.ResponseWriter, r *http.Request) {
 		},
 	})
 
+}
+
+func EditCompanyDetails(w http.ResponseWriter, r *http.Request) {
+	transactionId := uuid.NewV4()
+	logs.Logger.Info("TransactionId: ", transactionId)
+
+	headers, err := utils.ValidateHeaders(r)
+	if err != nil {
+		utils.SendErrorMessage(w, r, err, "Something went wrong. Contact Admin", transactionId, http.StatusBadRequest)
+		return
+	}
+
+	//Get the relevant headers
+	traceId := headers["trace-id"]
+	// Logging the headers
+	logs.Logger.Infof("TraceId: %s", traceId)
+
+	id := r.URL.Query().Get("company_id")
+	logs.Logger.Info("Company Id: ", id)
+
+	body, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		utils.SendErrorMessage(w, r, err, "Something went wrong. Contact Admin", transactionId, http.StatusBadRequest)
+		return
+	}
+
+	defer func() {
+		err = r.Body.Close()
+		if err != nil {
+			_ = logs.Logger.Error(err)
+			w.WriteHeader(http.StatusInternalServerError)
+			return
+		}
+	} ()
+
+	logs.Logger.Info("Request Object: ", string(body))
+
+	var companyDetails models.CompanyDetails
+
+	err = json.Unmarshal(body, &companyDetails)
+	if err != nil {
+		utils.SendErrorMessage(w, r, err, "Something went wrong. Contact Admin", transactionId, http.StatusBadRequest)
+		return
+	}
+	logs.Logger.Info("Decoded Request Object: ", companyDetails)
+
+	var numbers []string
+	query := fmt.Sprintf("SELECT company_phone_numbers FROM postit_auth.company WHERE company_id = $1")
+	err = db.Connection.QueryRow(query, id).Scan(pq.Array(&numbers))
+	if err != nil {
+		utils.SendErrorMessage(w, r, err, "Something went wrong. Contact Admin", transactionId, http.StatusInternalServerError)
+		return
+	}
+
+	numbers = append(numbers, companyDetails.CompanyPhoneNumber)
+
+	query = fmt.Sprintf("UPDATE postit_auth.company SET company_name = $1, company_email = $2, company_address = $3, company_phone_numbers = $4 WHERE company_id = $5")
+	_, err = db.Connection.Exec(query, companyDetails.CompanyName, companyDetails.CompanyEmail, companyDetails.CompanyAddress, pq.Array(&numbers))
+	if err != nil {
+		utils.SendErrorMessage(w, r, err, "Something went wrong. Contact Admin", transactionId, http.StatusInternalServerError)
+		return
+	}
+
+	_ = json.NewEncoder(w).Encode(&models.StandardErrorResponse{
+		Message: "COMPANY DETAILS UPDATED",
+		Meta: models.MetaData{
+			TraceId:       traceId,
+			TransactionId: transactionId.String(),
+			TimeStamp:     time.Now(),
+			Status:        "SUCCESS",
+		},
+	})
 }
 
 func DeleteUser(w http.ResponseWriter, r *http.Request) {

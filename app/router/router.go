@@ -21,9 +21,7 @@ type Routes []Route
 
 // InitRoutes Set up routes
 func InitRoutes() *mux.Router {
-
 	router := mux.NewRouter()
-
 	routes := Routes{
 		// health check
 		Route{
@@ -32,7 +30,6 @@ func InitRoutes() *mux.Router {
 			Method:  http.MethodGet,
 			Handler: controller.HealthCheckHandler,
 		},
-
 		// Login
 		Route{
 			Name: 	"Login",
@@ -82,6 +79,12 @@ func InitRoutes() *mux.Router {
 			Path:    "/auth/password",
 			Method:  http.MethodPost,
 			Handler: user.ChangePassword,
+		},
+		Route{
+			Name: "EditCompanyDetails",
+			Path: "/auth/details",
+			Method: http.MethodPost,
+			Handler: user.EditCompanyDetails,
 		},
 	}
 

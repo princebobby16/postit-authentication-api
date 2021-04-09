@@ -103,6 +103,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		&companyDetails.CreatedAt,
 		&companyDetails.UpdatedAt,
 	)
+	companyDetails.Username = loginRequest.Username
 	if err != nil {
 		utils.SendErrorMessage(w, r, err, "Something went wrong. Contact Admin", transactionId, http.StatusInternalServerError)
 		return

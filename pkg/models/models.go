@@ -40,7 +40,7 @@ type (
 		CompanyName         string   `json:"company_name"`
 		CompanyAddress      string   `json:"company_address"`
 		CompanyEmail        string   `json:"company_email"`
-		CompanyPhoneNumbers []string `json:"company_phone_numbers"`
+		CompanyPhoneNumber  string `json:"company_phone_number"`
 	}
 
 	Profile struct {

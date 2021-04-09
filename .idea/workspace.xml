@@ -3,10 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f29b6de9-e490-4bd5-b8f7-5affd15e1cd5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controller/auth/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller/auth/login.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controller/user/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller/user/user.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/router/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/router/router.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/models/models.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/models/models.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/utils/utils.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/utils/utils.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,11 +107,14 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Sent proper login error message and created refresh token endpoint" />
     <MESSAGE value="update signup handler" />
-    <option name="LAST_COMMIT_MESSAGE" value="update signup handler" />
+    <MESSAGE value="implement update user details" />
+    <option name="LAST_COMMIT_MESSAGE" value="implement update user details" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -137,37 +140,33 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="430" y="233" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.738@0.0.1366.738" timestamp="1617401763260" />
-    <state x="230" y="0" key="CommitChangelistDialog2" timestamp="1617569586033">
+    <state x="230" y="0" key="CommitChangelistDialog2" timestamp="1617755642161">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="230" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1617569586033" />
+    <state x="230" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1617755642161" />
     <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1617474569825">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1617474569825" />
-    <state width="1323" height="234" key="GridCell.Tab.0.bottom" timestamp="1617730968751">
+    <state width="661" height="234" key="GridCell.Tab.0.bottom" timestamp="1617970405031">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="234" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1617730968751" />
-    <state width="1323" height="234" key="GridCell.Tab.0.center" timestamp="1617730968751">
+    <state width="661" height="234" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1617970405031" />
+    <state width="661" height="234" key="GridCell.Tab.0.center" timestamp="1617970405031">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="234" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1617730968751" />
-    <state width="1323" height="234" key="GridCell.Tab.0.left" timestamp="1617730968750">
+    <state width="661" height="234" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1617970405031" />
+    <state width="661" height="234" key="GridCell.Tab.0.left" timestamp="1617970405031">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="234" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1617730968750" />
-    <state width="1323" height="234" key="GridCell.Tab.0.right" timestamp="1617730968751">
+    <state width="661" height="234" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1617970405031" />
+    <state width="661" height="234" key="GridCell.Tab.0.right" timestamp="1617970405031">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="234" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1617730968751" />
-    <state width="210" height="457" key="HiddenNamespacesPopup" timestamp="1609201054218">
+    <state width="661" height="234" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1617970405031" />
+    <state x="275" y="101" key="Vcs.Push.Dialog.v2" timestamp="1617755673216">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="210" height="457" key="HiddenNamespacesPopup/0.0.1366.738@0.0.1366.738" timestamp="1609201054218" />
-    <state x="275" y="101" key="Vcs.Push.Dialog.v2" timestamp="1617569643786">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state x="275" y="101" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1617569643786" />
+    <state x="275" y="101" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1617755673216" />
   </component>
 </project>
