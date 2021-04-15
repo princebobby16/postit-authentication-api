@@ -106,22 +106,25 @@ func ProvisionSchema(request models.SignUpRequest, passwordHash []byte) (string,
 		"CREATE TABLE IF NOT EXISTS %s.post("+
 			"post_id uuid UNIQUE NOT NULL, "+
 			"facebook_post_id character varying(200), "+
+			"facebook_user_id character varying(200), "+
 			"post_message text NOT NULL, "+
 			"post_images bytea[], "+
 			"image_paths character varying(200), "+
 			"hash_tags text[], "+
-			"post_status boolean NOT NULL, "+
+			"post_fb_status   boolean, "+
+			"post_tw_status   boolean, "+
+			"post_li_status   boolean, "+
 			"scheduled boolean NOT NULL, "+
 			"post_priority boolean NOT NULL, "+
 			"created_at timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP, "+
 			"updated_at timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP, "+
 			"PRIMARY KEY (post_id)); "+
 			"CREATE TABLE IF NOT EXISTS %s.schedule("+
-			" schedule_id uuid UNIQUE NOT NULL, "+
+			"schedule_id uuid UNIQUE NOT NULL, "+
 			"schedule_title character varying(200), "+
 			"post_to_feed boolean NOT NULL, "+
-			"schedule_from timestamp with time zone NOT NULL, "+
-			"schedule_to timestamp with time zone NOT NULL, "+
+			"schedule_from timestamp without time zone NOT NULL, "+
+			"schedule_to timestamp without time zone NOT NULL, "+
 			"post_ids character varying(200)[] NOT NULL, "+
 			"duration_per_post float NOT NULL, "+
 			"facebook character varying(200)[] NOT NULL, "+

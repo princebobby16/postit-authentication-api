@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f29b6de9-e490-4bd5-b8f7-5affd15e1cd5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controller/auth/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller/auth/login.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controller/user/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller/user/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/router/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/router/router.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/models/models.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/models/models.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/utils/utils.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/utils/utils.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,25 +145,25 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1617474569825" />
-    <state width="661" height="234" key="GridCell.Tab.0.bottom" timestamp="1617970405031">
+    <state width="1323" height="234" key="GridCell.Tab.0.bottom" timestamp="1617971503069">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="661" height="234" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1617970405031" />
-    <state width="661" height="234" key="GridCell.Tab.0.center" timestamp="1617970405031">
+    <state width="1323" height="234" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1617971503069" />
+    <state width="1323" height="234" key="GridCell.Tab.0.center" timestamp="1617971503069">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="661" height="234" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1617970405031" />
-    <state width="661" height="234" key="GridCell.Tab.0.left" timestamp="1617970405031">
+    <state width="1323" height="234" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1617971503069" />
+    <state width="1323" height="234" key="GridCell.Tab.0.left" timestamp="1617971503068">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="661" height="234" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1617970405031" />
-    <state width="661" height="234" key="GridCell.Tab.0.right" timestamp="1617970405031">
+    <state width="1323" height="234" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1617971503068" />
+    <state width="1323" height="234" key="GridCell.Tab.0.right" timestamp="1617971503069">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="661" height="234" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1617970405031" />
-    <state x="275" y="101" key="Vcs.Push.Dialog.v2" timestamp="1617755673216">
+    <state width="1323" height="234" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1617971503069" />
+    <state x="275" y="101" key="Vcs.Push.Dialog.v2" timestamp="1617971410606">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="101" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1617755673216" />
+    <state x="275" y="101" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1617971410606" />
   </component>
 </project>
